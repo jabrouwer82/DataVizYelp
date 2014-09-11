@@ -48,7 +48,7 @@ DROP TABLE vote CASCADE CONSTRAINTS ;
 
 CREATE TABLE Relation_1
   (
-    business_id     VARCHAR2 (30) NOT NULL ,
+    business_id     NUMBER NOT NULL ,
     neighborhood_id NUMBER NOT NULL
   ) ;
 ALTER TABLE Relation_1 ADD CONSTRAINT Relation_1__IDX PRIMARY KEY ( business_id, neighborhood_id ) ;
@@ -56,7 +56,7 @@ ALTER TABLE Relation_1 ADD CONSTRAINT Relation_1__IDX PRIMARY KEY ( business_id,
 CREATE TABLE Relation_14
   (
     attribute_id NUMBER NOT NULL ,
-    business_id  VARCHAR2 (30) NOT NULL
+    business_id  NUMBER NOT NULL
   ) ;
 ALTER TABLE Relation_14 ADD CONSTRAINT Relation_14__IDX PRIMARY KEY ( attribute_id, business_id ) ;
 
@@ -69,7 +69,7 @@ ALTER TABLE Relation_15 ADD CONSTRAINT Relation_15__IDX PRIMARY KEY ( review_id,
 
 CREATE TABLE Relation_16
   (
-    yelper_id VARCHAR2 (30) NOT NULL ,
+    yelper_id NUMBER NOT NULL ,
     vote_id  NUMBER NOT NULL
   ) ;
 ALTER TABLE Relation_16 ADD CONSTRAINT Relation_16__IDX PRIMARY KEY ( yelper_id, vote_id ) ;
@@ -77,21 +77,21 @@ ALTER TABLE Relation_16 ADD CONSTRAINT Relation_16__IDX PRIMARY KEY ( yelper_id,
 CREATE TABLE Relation_17
   (
     elite_year_id NUMBER NOT NULL ,
-    yelper_id     VARCHAR2 (30) NOT NULL
+    yelper_id     NUMBER NOT NULL
   ) ;
 ALTER TABLE Relation_17 ADD CONSTRAINT Relation_17__IDX PRIMARY KEY ( elite_year_id, yelper_id ) ;
 
 CREATE TABLE Relation_2
   (
-    business_id VARCHAR2 (30) NOT NULL ,
+    business_id NUMBER NOT NULL ,
     category_id NUMBER NOT NULL
   ) ;
 ALTER TABLE Relation_2 ADD CONSTRAINT Relation_2__IDX PRIMARY KEY ( business_id, category_id ) ;
 
 CREATE TABLE Relation_6
   (
-    yelper_id  VARCHAR2 (30) NOT NULL ,
-    friend_id VARCHAR2 (4000) NOT NULL
+    yelper_id  NUMBER NOT NULL ,
+    friend_id NUMBER NOT NULL
   ) ;
 ALTER TABLE Relation_6 ADD CONSTRAINT Relation_6__IDX PRIMARY KEY ( yelper_id, friend_id ) ;
 
@@ -105,16 +105,17 @@ ALTER TABLE attribute ADD CONSTRAINT attribute_PK PRIMARY KEY ( attribute_id ) ;
 
 CREATE TABLE business
   (
-    business_id   VARCHAR2 (30) NOT NULL ,
-    business_name VARCHAR2 (4000) ,
-    address       VARCHAR2 (4000) ,
-    city          VARCHAR2 (4000) ,
-    state         VARCHAR2 (4000) ,
-    latitude      NUMBER (18,15) ,
-    longitude     NUMBER (18,15) ,
-    stars         NUMBER (2,1) ,
-    review_count  NUMBER ,
-    business_open CHAR (1)
+    business_id     NUMBER NOT NULL ,
+    business_id_str VARCHAR2 (30) ,
+    business_name   VARCHAR2 (4000) ,
+    address         VARCHAR2 (4000) ,
+    city            VARCHAR2 (4000) ,
+    state           VARCHAR2 (4000) ,
+    latitude        NUMBER (18,15) ,
+    longitude       NUMBER (18,15) ,
+    stars           NUMBER (2,1) ,
+    review_count    NUMBER ,
+    business_open   CHAR (1)
   ) ;
 ALTER TABLE business ADD CONSTRAINT business_PK PRIMARY KEY ( business_id ) ;
 
@@ -128,7 +129,7 @@ ALTER TABLE category ADD CONSTRAINT category_PK PRIMARY KEY ( category_id ) ;
 CREATE TABLE checkin
   (
     checkin_id  NUMBER NOT NULL ,
-    business_id VARCHAR2 (30) NOT NULL
+    business_id NUMBER
   ) ;
 ALTER TABLE checkin ADD CONSTRAINT checkin_PK PRIMARY KEY ( checkin_id ) ;
 
@@ -146,7 +147,7 @@ CREATE TABLE compliment
     compliment_id    NUMBER NOT NULL ,
     compliment_type  VARCHAR2 (4000) ,
     compliment_count NUMBER ,
-    yelper_id        VARCHAR2 (30) NOT NULL
+    yelper_id        NUMBER
   ) ;
 ALTER TABLE compliment ADD CONSTRAINT compliment_PK PRIMARY KEY ( compliment_id ) ;
 
@@ -163,7 +164,7 @@ CREATE TABLE hours
     hours_day   VARCHAR2 (4000) ,
     hours_open  CHAR (1) ,
     hours_tim   VARCHAR2 (4000) ,
-    business_id VARCHAR2 (30) NOT NULL
+    business_id NUMBER
   ) ;
 ALTER TABLE hours ADD CONSTRAINT hours_PK PRIMARY KEY ( hours_id ) ;
 
@@ -177,11 +178,11 @@ ALTER TABLE neighborhood ADD CONSTRAINT neighborhood_PK PRIMARY KEY ( neighborho
 CREATE TABLE review
   (
     review_id   NUMBER NOT NULL ,
-    yelper_id     VARCHAR2 (4000) ,
+    yelper_id   NUMBER ,
     stars       NUMBER (2,1) ,
     text        VARCHAR2 (4000) ,
     review_date DATE ,
-    business_id VARCHAR2 (30)
+    business_id NUMBER
   ) ;
 ALTER TABLE review ADD CONSTRAINT review_PK PRIMARY KEY ( review_id ) ;
 
@@ -189,16 +190,17 @@ CREATE TABLE tip
   (
     tip_id      NUMBER NOT NULL ,
     text        VARCHAR2 (4000) ,
-    yelper_id   VARCHAR2 (30) NOT NULL ,
+    yelper_id   NUMBER ,
     tip_date    DATE ,
     likes       NUMBER ,
-    business_id VARCHAR2 (30) NOT NULL
+    business_id NUMBER
   ) ;
 ALTER TABLE tip ADD CONSTRAINT tip_PK PRIMARY KEY ( tip_id ) ;
 
 CREATE TABLE yelper
   (
-    yelper_id       VARCHAR2 (30) NOT NULL ,
+    yelper_id       NUMBER NOT NULL ,
+    yelper_id_str   VARCHAR2 (30) ,
     yelper_name     VARCHAR2 (4000) ,
     review_count    NUMBER ,
     average_stars   NUMBER (18,17) ,

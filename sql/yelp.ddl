@@ -99,7 +99,7 @@ CREATE TABLE attribute
   (
     attribute_id    NUMBER NOT NULL ,
     attribute_name  VARCHAR2 (4000) ,
-    attribute_value VARCHAR2 (4000)
+    attribute_value CHAR (1)
   ) ;
 ALTER TABLE attribute ADD CONSTRAINT attribute_PK PRIMARY KEY ( attribute_id ) ;
 

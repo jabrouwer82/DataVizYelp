@@ -1,6 +1,9 @@
 # Data model stuff that doesn't need to be uploaded.
 data_model/
 
+# Generated files
+bin/
+
 # History files
 .Rhistory
 

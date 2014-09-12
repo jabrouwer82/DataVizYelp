@@ -99,7 +99,7 @@ CREATE TABLE attribute
   (
     attribute_id    NUMBER NOT NULL ,
     attribute_name  VARCHAR2 (4000) ,
-    attribute_value CHAR (1)
+    attribute_value VARCHAR2 (4000)
   ) ;
 ALTER TABLE attribute ADD CONSTRAINT attribute_PK PRIMARY KEY ( attribute_id ) ;
 
@@ -115,7 +115,7 @@ CREATE TABLE business
     longitude       NUMBER (18,15) ,
     stars           NUMBER (2,1) ,
     review_count    NUMBER ,
-    business_open   CHAR (1)
+    business_open   VARCHAR2 (4000)
   ) ;
 ALTER TABLE business ADD CONSTRAINT business_PK PRIMARY KEY ( business_id ) ;
 
@@ -162,7 +162,7 @@ CREATE TABLE hours
   (
     hours_id    NUMBER NOT NULL ,
     hours_day   VARCHAR2 (4000) ,
-    hours_open  CHAR (1) ,
+    hours_open  VARCHAR2 (4000) ,
     hours_tim   VARCHAR2 (4000) ,
     business_id NUMBER
   ) ;

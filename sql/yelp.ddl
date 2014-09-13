@@ -6,7 +6,7 @@
 
 
 
-DROP TABLE Business_neighorhoor CASCADE CONSTRAINTS ;
+DROP TABLE Business_neighborhood CASCADE CONSTRAINTS ;
 
 DROP TABLE Attribute_business CASCADE CONSTRAINTS ;
 
@@ -46,12 +46,12 @@ DROP TABLE yelper CASCADE CONSTRAINTS ;
 
 DROP TABLE vote CASCADE CONSTRAINTS ;
 
-CREATE TABLE Business_neighorhoor
+CREATE TABLE Business_neighborhood
   (
     business_id     NUMBER NOT NULL ,
     neighborhood_id NUMBER NOT NULL
   ) ;
-ALTER TABLE Business_neighorhoor ADD CONSTRAINT Business_neighorhoor__IDX PRIMARY KEY ( business_id, neighborhood_id ) ;
+ALTER TABLE Business_neighborhood ADD CONSTRAINT Business_neighborhood__IDX PRIMARY KEY ( business_id, neighborhood_id ) ;
 
 CREATE TABLE Attribute_business
   (
@@ -217,7 +217,7 @@ CREATE TABLE vote
   ) ;
 ALTER TABLE vote ADD CONSTRAINT vote_PK PRIMARY KEY ( vote_id ) ;
 
-ALTER TABLE Business_neighorhoor ADD CONSTRAINT FK_ASS_1 FOREIGN KEY ( business_id ) REFERENCES business ( business_id ) ;
+ALTER TABLE Business_neighborhood ADD CONSTRAINT FK_ASS_1 FOREIGN KEY ( business_id ) REFERENCES business ( business_id ) ;
 
 ALTER TABLE Elite_year_yelper ADD CONSTRAINT FK_ASS_10 FOREIGN KEY ( yelper_id ) REFERENCES yelper ( yelper_id ) ;
 
@@ -227,7 +227,7 @@ ALTER TABLE Business_category ADD CONSTRAINT FK_ASS_13 FOREIGN KEY ( category_id
 
 ALTER TABLE Yelper_friend ADD CONSTRAINT FK_ASS_19 FOREIGN KEY ( yelper_id ) REFERENCES yelper ( yelper_id ) ;
 
-ALTER TABLE Business_neighorhoor ADD CONSTRAINT FK_ASS_2 FOREIGN KEY ( neighborhood_id ) REFERENCES neighborhood ( neighborhood_id ) ;
+ALTER TABLE Business_neighborhood ADD CONSTRAINT FK_ASS_2 FOREIGN KEY ( neighborhood_id ) REFERENCES neighborhood ( neighborhood_id ) ;
 
 ALTER TABLE Yelper_friend ADD CONSTRAINT FK_ASS_20 FOREIGN KEY ( friend_id ) REFERENCES yelper ( yelper_id ) ;
 

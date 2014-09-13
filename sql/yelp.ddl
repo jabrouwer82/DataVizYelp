@@ -163,7 +163,7 @@ CREATE TABLE hours
     hours_id    NUMBER NOT NULL ,
     hours_day   VARCHAR2 (4000) ,
     hours_open  VARCHAR2 (4000) ,
-    hours_tim   VARCHAR2 (4000) ,
+    hours_time   VARCHAR2 (4000) ,
     business_id NUMBER
   ) ;
 ALTER TABLE hours ADD CONSTRAINT hours_PK PRIMARY KEY ( hours_id ) ;

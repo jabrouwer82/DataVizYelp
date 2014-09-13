@@ -171,7 +171,7 @@ ALTER TABLE hours ADD CONSTRAINT hours_PK PRIMARY KEY ( hours_id ) ;
 CREATE TABLE neighborhood
   (
     neighborhood_id   NUMBER NOT NULL ,
-    neighborhoor_name VARCHAR2 (4000)
+    neighborhood_name VARCHAR2 (4000)
   ) ;
 ALTER TABLE neighborhood ADD CONSTRAINT neighborhood_PK PRIMARY KEY ( neighborhood_id ) ;
 

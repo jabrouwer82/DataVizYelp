@@ -10,10 +10,6 @@ DROP TABLE Business_neighborhood CASCADE CONSTRAINTS ;
 
 DROP TABLE Attribute_business CASCADE CONSTRAINTS ;
 
-DROP TABLE Review_vote CASCADE CONSTRAINTS ;
-
-DROP TABLE Yelper_vote CASCADE CONSTRAINTS ;
-
 DROP TABLE Elite_year_yelper CASCADE CONSTRAINTS ;
 
 DROP TABLE Business_category CASCADE CONSTRAINTS ;
@@ -60,20 +56,6 @@ CREATE TABLE Attribute_business
   ) ;
 ALTER TABLE Attribute_business ADD CONSTRAINT Attribute_business__IDX PRIMARY KEY ( attribute_id, business_id ) ;
 
-CREATE TABLE Review_vote
-  (
-    review_id NUMBER NOT NULL ,
-    vote_id   NUMBER NOT NULL
-  ) ;
-ALTER TABLE Review_vote ADD CONSTRAINT Review_vote__IDX PRIMARY KEY ( review_id, vote_id ) ;
-
-CREATE TABLE Yelper_vote
-  (
-    yelper_id NUMBER NOT NULL ,
-    vote_id  NUMBER NOT NULL
-  ) ;
-ALTER TABLE Yelper_vote ADD CONSTRAINT Yelper_vote__IDX PRIMARY KEY ( yelper_id, vote_id ) ;
-
 CREATE TABLE Elite_year_yelper
   (
     elite_year_id NUMBER NOT NULL ,
@@ -91,7 +73,7 @@ ALTER TABLE Business_category ADD CONSTRAINT Business_category__IDX PRIMARY KEY 
 CREATE TABLE Yelper_friend
   (
     yelper_id  NUMBER NOT NULL ,
-    friend_id NUMBER NOT NULL
+    friend_id  NUMBER NOT NULL
   ) ;
 ALTER TABLE Yelper_friend ADD CONSTRAINT Yelper_friend__IDX PRIMARY KEY ( yelper_id, friend_id ) ;
 
@@ -154,7 +136,7 @@ ALTER TABLE complement ADD CONSTRAINT complement_PK PRIMARY KEY ( complement_id 
 CREATE TABLE elite_year
   (
     elite_year_id NUMBER NOT NULL ,
-    elite_year VARCHAR2 (4000)
+    elite_year    VARCHAR2 (4000)
   ) ;
 ALTER TABLE elite_year ADD CONSTRAINT elite_year_PK PRIMARY KEY ( elite_year_id ) ;
 
@@ -163,7 +145,7 @@ CREATE TABLE hours
     hours_id    NUMBER NOT NULL ,
     hours_day   VARCHAR2 (4000) ,
     hours_open  VARCHAR2 (4000) ,
-    hours_time   VARCHAR2 (4000) ,
+    hours_time  VARCHAR2 (4000) ,
     business_id NUMBER
   ) ;
 ALTER TABLE hours ADD CONSTRAINT hours_PK PRIMARY KEY ( hours_id ) ;
@@ -213,7 +195,9 @@ CREATE TABLE vote
   (
     vote_id    NUMBER NOT NULL ,
     vote_type  VARCHAR2 (4000) ,
-    vote_count NUMBER
+    vote_count NUMBER ,
+    yelper_id  NUMBER,
+    review_id  NUMBER
   ) ;
 ALTER TABLE vote ADD CONSTRAINT vote_PK PRIMARY KEY ( vote_id ) ;
 
@@ -235,38 +219,34 @@ ALTER TABLE Attribute_business ADD CONSTRAINT FK_ASS_3 FOREIGN KEY ( attribute_i
 
 ALTER TABLE Attribute_business ADD CONSTRAINT FK_ASS_4 FOREIGN KEY ( business_id ) REFERENCES business ( business_id ) ;
 
-ALTER TABLE Review_vote ADD CONSTRAINT FK_ASS_5 FOREIGN KEY ( review_id ) REFERENCES review ( review_id ) ;
-
-ALTER TABLE Review_vote ADD CONSTRAINT FK_ASS_6 FOREIGN KEY ( vote_id ) REFERENCES vote ( vote_id ) ;
-
-ALTER TABLE Yelper_vote ADD CONSTRAINT FK_ASS_7 FOREIGN KEY ( yelper_id ) REFERENCES yelper ( yelper_id ) ;
-
-ALTER TABLE Yelper_vote ADD CONSTRAINT FK_ASS_8 FOREIGN KEY ( vote_id ) REFERENCES vote ( vote_id ) ;
-
 ALTER TABLE Elite_year_yelper ADD CONSTRAINT FK_ASS_9 FOREIGN KEY ( elite_year_id ) REFERENCES elite_year ( elite_year_id ) ;
 
 ALTER TABLE checkin ADD CONSTRAINT checkin_business_FK FOREIGN KEY ( business_id ) REFERENCES business ( business_id ) ;
 
 ALTER TABLE checkin_info ADD CONSTRAINT checkin_info_checkin_FK FOREIGN KEY ( checkin_id ) REFERENCES checkin ( checkin_id ) ;
 
-ALTER TABLE complement ADD CONSTRAINT complement_user_FK FOREIGN KEY ( yelper_id ) REFERENCES yelper ( yelper_id ) ;
+ALTER TABLE complement ADD CONSTRAINT complement_yelper_FK FOREIGN KEY ( yelper_id ) REFERENCES yelper ( yelper_id ) ;
 
 ALTER TABLE hours ADD CONSTRAINT hours_business_FK FOREIGN KEY ( business_id ) REFERENCES business ( business_id ) ;
 
 ALTER TABLE review ADD CONSTRAINT review_business_FK FOREIGN KEY ( business_id ) REFERENCES business ( business_id ) ;
 
-ALTER TABLE review ADD CONSTRAINT review_user_FK FOREIGN KEY ( yelper_id ) REFERENCES yelper ( yelper_id ) ;
+ALTER TABLE review ADD CONSTRAINT review_yelper_FK FOREIGN KEY ( yelper_id ) REFERENCES yelper ( yelper_id ) ;
 
 ALTER TABLE tip ADD CONSTRAINT tip_business_FK FOREIGN KEY ( business_id ) REFERENCES business ( business_id ) ;
 
-ALTER TABLE tip ADD CONSTRAINT tip_user_FK FOREIGN KEY ( yelper_id ) REFERENCES yelper ( yelper_id ) ;
+ALTER TABLE tip ADD CONSTRAINT tip_yelper_FK FOREIGN KEY ( yelper_id ) REFERENCES yelper ( yelper_id ) ;
+
+ALTER TABLE vote ADD CONSTRAINT vote_yelper_FK FOREIGN KEY ( yelper_id ) REFERENCES yelper ( yelper_id ) ;
+
+ALTER TABLE vote ADD CONSTRAINT vote_review_FK FOREIGN KEY ( review_id ) REFERENCES review ( review_id ) ;
 
 
 -- Oracle SQL Developer Data Modeler Summary Report: 
 -- 
--- CREATE TABLE                            20
+-- CREATE TABLE                            18
 -- CREATE INDEX                             0
--- ALTER TABLE                             42
+-- ALTER TABLE                             40
 -- CREATE VIEW                              0
 -- CREATE PACKAGE                           0
 -- CREATE PACKAGE BODY                      0

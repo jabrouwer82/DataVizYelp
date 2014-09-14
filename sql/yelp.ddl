@@ -26,7 +26,7 @@ DROP TABLE checkin CASCADE CONSTRAINTS ;
 
 DROP TABLE checkin_info CASCADE CONSTRAINTS ;
 
-DROP TABLE complement CASCADE CONSTRAINTS ;
+DROP TABLE compliment CASCADE CONSTRAINTS ;
 
 DROP TABLE elite_year CASCADE CONSTRAINTS ;
 
@@ -124,14 +124,14 @@ CREATE TABLE checkin_info
   ) ;
 ALTER TABLE checkin_info ADD CONSTRAINT checkin_info_PK PRIMARY KEY ( checkin_info_id ) ;
 
-CREATE TABLE complement
+CREATE TABLE compliment
   (
-    complement_id    NUMBER NOT NULL ,
-    complement_type  VARCHAR2 (4000) ,
-    complement_count NUMBER ,
+    compliment_id    NUMBER NOT NULL ,
+    compliment_type  VARCHAR2 (4000) ,
+    compliment_count NUMBER ,
     yelper_id        NUMBER
   ) ;
-ALTER TABLE complement ADD CONSTRAINT complement_PK PRIMARY KEY ( complement_id ) ;
+ALTER TABLE compliment ADD CONSTRAINT compliment_PK PRIMARY KEY ( compliment_id ) ;
 
 CREATE TABLE elite_year
   (
@@ -225,7 +225,7 @@ ALTER TABLE checkin ADD CONSTRAINT checkin_business_FK FOREIGN KEY ( business_id
 
 ALTER TABLE checkin_info ADD CONSTRAINT checkin_info_checkin_FK FOREIGN KEY ( checkin_id ) REFERENCES checkin ( checkin_id ) ;
 
-ALTER TABLE complement ADD CONSTRAINT complement_yelper_FK FOREIGN KEY ( yelper_id ) REFERENCES yelper ( yelper_id ) ;
+ALTER TABLE compliment ADD CONSTRAINT compliment_yelper_FK FOREIGN KEY ( yelper_id ) REFERENCES yelper ( yelper_id ) ;
 
 ALTER TABLE hours ADD CONSTRAINT hours_business_FK FOREIGN KEY ( business_id ) REFERENCES business ( business_id ) ;
 

@@ -57,7 +57,7 @@ hours = []
 hours_gen = itertools.count(0,1)
 neighborhoods = {}
 neighborhood_gen = itertools.count(0,1)
-reviews = {}
+reviews = []
 review_gen = itertools.count(0,1)
 tips = {}
 tip_gen = itertools.count(0,1)
@@ -75,6 +75,8 @@ business_categories = []
 user_friends = []
 relation_tables = set(['attribute_business', 'business_neighborhood', 'elite_year_yelper', 'business_category', 'yelper_friend'])
 
+print('Parsing business.json ...')
+business_count = 0
 # Parses a business object
 for raw_business in raw_businesses:
   business_json = json.loads(raw_business)
@@ -152,6 +154,7 @@ for raw_business in raw_businesses:
       hour['business_id'] = business_pk
       hours.append(hour)
 
+print('Parsing user.json ...')
 # Parses a user/yelper object
 for raw_user in raw_users:
   user_json = json.loads(raw_user)
@@ -194,17 +197,38 @@ for raw_user in raw_users:
     compliment['compliment"count'] = compliment_count
     compliment['yelper_id'] = user_pk
 
+print('Calculating friends ...')
 # Parses the list of friends
 for user_pk, user in users.items():
   for friend_id in user['friends']:
     friend = users[friend_id]
     user_friends.append((user['yelper_id'], friend['yelper_id']))
-'''
+
+print('Parsing review.json')
 # Parses a review object
 for raw_review in raw_reviews:
   review_json = json.loads(raw_review)
   review = {}
-'''
+  review_pk = review_gen.__next__()
+  review['review_id'] = review_pk
+  review['business_id'] = businesses[review_json['business_id']]['business_id']
+  review['yelper_id'] = users[review_json['user_id']]['yelper_id']
+  review['stars'] = review_json['stars']
+  review['text'] = review_json['text']
+  review['review_date'] = review_json['date']
+  reviews.append(review)
+
+# Parses a vote object
+  for vote_type, vote_count in review_json['votes'].items():
+    vote = {}
+    vote_pk = vote_gen.__next__()
+    vote['vote_id'] = vote_pk
+    vote['vote_type'] = vote_type
+    vote['vote_count'] = vote_count
+    vote['yelper_id'] = review_pk
+    votes.append(vote)
+    
+
 INSERT = 'INSERT INTO '
 BUSINESS_INSERT = INSERT + 'business (business_id, business_id_str, business_name, address, city, state, latitude, longitude, stars, review_count, business_open) VALUES ({}, q\'#{}#\', q\'#{}#\', q\'#{}#\', q\'#{}#\', q\'#{}#\', {}, {}, {}, {}, q\'#{}#\');\n'
 ATTRIBUTE_INSERT = INSERT + 'attribute (attribute_id, attribute_name, attribute_value) VALUES ({}, q\'#{}#\', q\'#{}#\');\n'
@@ -216,6 +240,7 @@ USER_INSERT = INSERT + 'yelper (yelper_id, yelper_id_str, yelper_name, review_co
 VOTE_INSERT = INSERT + 'vote (vote_id, vote_type, vote_count, yelper_id, review_id) VALUES ({}, q\'#{}#\', {}, {}, {});\n'
 ELITE_YEAR_INSERT = INSERT + 'elite_year (elite_year_id, elite_year) VALUES ({}, q\'#{}#\');\n'
 COMPLIMENT_INSERT = INSERT + 'compliment (compliment_id, compliment_type, compliment_count, yelper_id) VALUES ({}, q\'#{}#\', {}, {});\n'
+REVIEW_INSERT = INSERT + 'review (review_id, business_id, yelper_id, starts, text, review_date) VALUES ({}, {}, {}, q\'#{}#\', {}, to_date(\'{}\', \'YYYY-MM-DD\'));\n'
 def insert_format(table, values):
   if table == 'business':
     return BUSINESS_INSERT.format(values['business_id'],
@@ -273,9 +298,28 @@ def insert_format(table, values):
                                    values['compliment_type'],
                                    values['compliment_count'],
                                    values['yelper_id'])
+  if table == 'review':
+    return REVIEW_INSERT.format(values['review_id'],
+                                values['business_id'],
+                                values['yelper_id'],
+                                values['stars'],
+                                values['text'],
+                                values['review_date'])
 
-# Creates new file or overwrites the existing file.
-outputFile = open(os.path.join(outputDir, 'business.dml'), 'w')
+
+print('Generating review.dml ...')
+# Review json output dml file
+#outputFile.close()
+outputFile = open(os.path.join(outputDir, 'review.dml'), 'w')
+
+for review in reviews:
+  insert = insert_format('review', review)
+  outputFile.write(insert)
+
+print('Generating user.dml ...')
+# User json output dml file
+outputFile.close()
+outputFile = open(os.path.join(outputDir, 'user.dml'), 'w')
 
 for user_friend in user_friends:
   user_friend = ('yelper_id', 'friend_id') + user_friend
@@ -306,6 +350,11 @@ for user in users.values():
 for hour in hours:
   insert = insert_format('hours', hour)
   outputFile.write(insert)
+
+print('Generating business.dml ...')
+# Business json output dml file
+outputFile.close()
+outputFile = open(os.path.join(outputDir, 'business.dml'), 'w')
 
 for business_category in business_categories:
   business_category = ('business_id', 'category_id') + business_category

@@ -36,8 +36,6 @@ DROP TABLE neighborhood CASCADE CONSTRAINTS ;
 
 DROP TABLE review CASCADE CONSTRAINTS ;
 
-DROP TABLE tip CASCADE CONSTRAINTS ;
-
 DROP TABLE yelper CASCADE CONSTRAINTS ;
 
 DROP TABLE vote CASCADE CONSTRAINTS ;
@@ -168,17 +166,6 @@ CREATE TABLE review
   ) ;
 ALTER TABLE review ADD CONSTRAINT review_PK PRIMARY KEY ( review_id ) ;
 
-CREATE TABLE tip
-  (
-    tip_id      NUMBER NOT NULL ,
-    text        VARCHAR2 (4000) ,
-    yelper_id   NUMBER ,
-    tip_date    DATE ,
-    likes       NUMBER ,
-    business_id NUMBER
-  ) ;
-ALTER TABLE tip ADD CONSTRAINT tip_PK PRIMARY KEY ( tip_id ) ;
-
 CREATE TABLE yelper
   (
     yelper_id       NUMBER NOT NULL ,
@@ -232,10 +219,6 @@ ALTER TABLE hours ADD CONSTRAINT hours_business_FK FOREIGN KEY ( business_id ) R
 ALTER TABLE review ADD CONSTRAINT review_business_FK FOREIGN KEY ( business_id ) REFERENCES business ( business_id ) ;
 
 ALTER TABLE review ADD CONSTRAINT review_yelper_FK FOREIGN KEY ( yelper_id ) REFERENCES yelper ( yelper_id ) ;
-
-ALTER TABLE tip ADD CONSTRAINT tip_business_FK FOREIGN KEY ( business_id ) REFERENCES business ( business_id ) ;
-
-ALTER TABLE tip ADD CONSTRAINT tip_yelper_FK FOREIGN KEY ( yelper_id ) REFERENCES yelper ( yelper_id ) ;
 
 ALTER TABLE vote ADD CONSTRAINT vote_yelper_FK FOREIGN KEY ( yelper_id ) REFERENCES yelper ( yelper_id ) ;
 

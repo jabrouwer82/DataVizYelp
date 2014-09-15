@@ -1,9 +1,10 @@
 #! python3
-import itertools
 import getopt
+import itertools
 import json
-import sys
+import math
 import os
+import sys
 
 # Usage: python convert.py [(-i | --inputDir) <location of yelp json files>]
 #                          [(-o | --outputDir) <location to put generated sql files>]
@@ -16,8 +17,6 @@ import os
 opts = getopt.getopt(sys.argv[1:], 'i:o:', ['inputDir=', 'outputDir='])
 inputDir = './'
 outputDir = '../bin/'
-print(sys.argv)
-print(opts)
 for opt, arg in opts[0]:
   if opt in ('-i', '--inputDir'):
     inputDir = arg
@@ -36,33 +35,31 @@ raw_tips = open(os.path.join(inputDir, "yelp_academic_dataset_tip.json"))
 # not given ids by yelp. Should be a 1-1 relation with the sql tables. Following
 # each map/list is the generator that is used to create each primary key.
 
-businesses = {}
-business_gen = itertools.count(0,1)
-users = {}
-user_gen = itertools.count(0,1)
-
-attributes = {}
 attribute_gen = itertools.count(0,1)
+attributes = {}
+business_gen = itertools.count(0,1)
+businesses = {}
 categories = {}
 category_gen = itertools.count(0,1)
-checkins = {}
-checkin_gen = itertools.count(0,1)
-checkin_infos = {}
-checkin_info_gen = itertools.count(0,1)
-compliments = {}
-compliment_gen = itertools.count(0,1)
-elite_years = {}
 elite_year_gen = itertools.count(0,1)
+elite_years = {}
+neighborhood_gen = itertools.count(0,1)
+neighborhoods = {}
+user_gen = itertools.count(0,1)
+users = {}
+
+checkin_gen = itertools.count(0,1)
+checkin_info_gen = itertools.count(0,1)
+checkin_infos = []
+checkins = []
+compliment_gen = itertools.count(0,1)
+compliments = []
 hours = []
 hours_gen = itertools.count(0,1)
-neighborhoods = {}
-neighborhood_gen = itertools.count(0,1)
-reviews = []
 review_gen = itertools.count(0,1)
-tips = {}
-tip_gen = itertools.count(0,1)
-votes = []
+reviews = []
 vote_gen = itertools.count(0,1)
+votes = []
 
 # The folowing 7 lists are the lists of pairs that fill the many to many
 # relation tables. Should be a 1-1 with the sql relation tables
@@ -75,7 +72,8 @@ business_categories = []
 user_friends = []
 relation_tables = set(['attribute_business', 'business_neighborhood', 'elite_year_yelper', 'business_category', 'yelper_friend'])
 
-print('Parsing business.json ...')
+print('Parsing business.json ...', end='')
+sys.stdout.flush()
 business_count = 0
 # Parses a business object
 for raw_business in raw_businesses:
@@ -154,7 +152,9 @@ for raw_business in raw_businesses:
       hour['business_id'] = business_pk
       hours.append(hour)
 
-print('Parsing user.json ...')
+print(' done')
+print('Parsing user.json ...', end='')
+sys.stdout.flush()
 # Parses a user/yelper object
 for raw_user in raw_users:
   user_json = json.loads(raw_user)
@@ -194,17 +194,22 @@ for raw_user in raw_users:
     compliment = {}
     compliment['compliment_id'] = compliment_gen.__next__()
     compliment['compliment_type'] = compliment_type
-    compliment['compliment"count'] = compliment_count
+    compliment['compliment_count'] = compliment_count
     compliment['yelper_id'] = user_pk
+    compliments.append(compliment)
 
-print('Calculating friends ...')
+print(' done')
+print('Calculating friends ...', end='')
+sys.stdout.flush()
 # Parses the list of friends
 for user_pk, user in users.items():
   for friend_id in user['friends']:
     friend = users[friend_id]
     user_friends.append((user['yelper_id'], friend['yelper_id']))
 
-print('Parsing review.json')
+print(' done')
+print('Parsing review.json ...', end='')
+sys.stdout.flush()
 # Parses a review object
 for raw_review in raw_reviews:
   review_json = json.loads(raw_review)
@@ -227,7 +232,29 @@ for raw_review in raw_reviews:
     vote['vote_count'] = vote_count
     vote['yelper_id'] = review_pk
     votes.append(vote)
-    
+
+print(' done')
+print('Parsing checkin.json ...', end='')
+sys.stdout.flush()
+# Parses a checkin object
+for raw_checkin in raw_checkins:
+  checkin_json = json.loads(raw_checkin)
+  checkin = {}
+  checkin_pk = checkin_gen.__next__()
+  checkin['checkin_id'] = checkin_pk
+  checkin['business_id'] = businesses[checkin_json['business_id']]['business_id']
+  checkins.append(checkin)
+
+  for checkin_time, checkin_count in checkin_json['checkin_info'].items():
+    checkin_info = {}
+    checkin_info_pk = checkin_info_gen.__next__()
+    checkin_info['checkin_info_id'] = checkin_info_pk
+    checkin_info['checkin_time'] = checkin_time
+    checkin_info['checkin_count'] = checkin_count
+    checkin_info['checkin_id'] = checkin_pk
+    checkin_infos.append(checkin_info)
+
+print(' done')
 
 INSERT = 'INSERT INTO '
 BUSINESS_INSERT = INSERT + 'business (business_id, business_id_str, business_name, address, city, state, latitude, longitude, stars, review_count, business_open) VALUES ({}, q\'#{}#\', q\'#{}#\', q\'#{}#\', q\'#{}#\', q\'#{}#\', {}, {}, {}, {}, q\'#{}#\');\n'
@@ -240,7 +267,9 @@ USER_INSERT = INSERT + 'yelper (yelper_id, yelper_id_str, yelper_name, review_co
 VOTE_INSERT = INSERT + 'vote (vote_id, vote_type, vote_count, yelper_id, review_id) VALUES ({}, q\'#{}#\', {}, {}, {});\n'
 ELITE_YEAR_INSERT = INSERT + 'elite_year (elite_year_id, elite_year) VALUES ({}, q\'#{}#\');\n'
 COMPLIMENT_INSERT = INSERT + 'compliment (compliment_id, compliment_type, compliment_count, yelper_id) VALUES ({}, q\'#{}#\', {}, {});\n'
-REVIEW_INSERT = INSERT + 'review (review_id, business_id, yelper_id, starts, text, review_date) VALUES ({}, {}, {}, q\'#{}#\', {}, to_date(\'{}\', \'YYYY-MM-DD\'));\n'
+REVIEW_INSERT = INSERT + 'review (review_id, business_id, yelper_id, stars, text, review_date) VALUES ({}, {}, {}, {}, q\'#{}#\', to_date(\'{}\', \'YYYY-MM-DD\'));\n'
+CHECKIN_INSERT = INSERT + 'checkin (checkin_id, business_id) VALUES ({}, {});\n'
+CHECKIN_INFO_INSERT = INSERT + 'checkin_info (checkin_info_id, checkin_time, checkin_count, checkin_id) VALUES ({}, q\'#{}#\', {}, {});\n'
 def insert_format(table, values):
   if table == 'business':
     return BUSINESS_INSERT.format(values['business_id'],
@@ -293,11 +322,11 @@ def insert_format(table, values):
   if table == 'elite_year':
     return ELITE_YEAR_INSERT.format(values[0],
                              values[1])
-  if table == 'comliment':
-    return COMLIMENT_INSERT.format(values['compliment_id'],
-                                   values['compliment_type'],
-                                   values['compliment_count'],
-                                   values['yelper_id'])
+  if table == 'compliment':
+    return COMPLIMENT_INSERT.format(values['compliment_id'],
+                                    values['compliment_type'],
+                                    values['compliment_count'],
+                                    values['yelper_id'])
   if table == 'review':
     return REVIEW_INSERT.format(values['review_id'],
                                 values['business_id'],
@@ -305,79 +334,37 @@ def insert_format(table, values):
                                 values['stars'],
                                 values['text'],
                                 values['review_date'])
+  if table == 'checkin':
+    return CHECKIN_INSERT.format(values['checkin_id'],
+                                 values['business_id'])
+  if table == 'checkin_info':
+    return CHECKIN_INFO_INSERT.format(values['checkin_info_id'],
+                                      values['checkin_time'],
+                                      values['checkin_count'],
+                                      values['checkin_id'])
 
+def output_file_duration(size, count):
+  count += 1
+  if count in [math.floor(.1 * x * size) for x in range(1, 11)]:
+    print('=', end='')
+    sys.stdout.flush()
+  if count == size:
+    print('] done')
+  return count
 
-print('Generating review.dml ...')
-# Review json output dml file
-#outputFile.close()
-outputFile = open(os.path.join(outputDir, 'review.dml'), 'w')
-
-for review in reviews:
-  insert = insert_format('review', review)
-  outputFile.write(insert)
-
-print('Generating user.dml ...')
-# User json output dml file
-outputFile.close()
-outputFile = open(os.path.join(outputDir, 'user.dml'), 'w')
-
-for user_friend in user_friends:
-  user_friend = ('yelper_id', 'friend_id') + user_friend
-  insert = insert_format('yelper_friend', user_friend)
-  outputFile.write(insert)
-
-for compliment in compliments:
-  insert = insert_format('compliment', compliment)
-  outputFile.write(insert)
-
-for elite_year_user in elite_year_users:
-  elite_year_user = ('elite_year_id', 'yelper_id') + elite_year_user
-  insert = insert_format('elite_year_yelper', elite_year_user)
-  outputFile.write(insert)
-
-for elite_year, elite_year_pk in elite_years.items():
-  insert = insert_format('elite_year', (elite_year_pk, elite_year))
-  outputFile.write(insert)
-
-for vote in votes:
-  insert = insert_format('vote', vote)
-  outputFile.write(insert)
-
-for user in users.values():
-  insert = insert_format('user', user)
-  outputFile.write(insert)
-
-for hour in hours:
-  insert = insert_format('hours', hour)
-  outputFile.write(insert)
-
-print('Generating business.dml ...')
+print('Generating business.dml [', end='')
+sys.stdout.flush()
 # Business json output dml file
-outputFile.close()
-outputFile = open(os.path.join(outputDir, 'business.dml'), 'w')
+output_file = open(os.path.join(outputDir, 'business.dml'), 'w')
+output_file.write('set define ~\n')
+output_file_size = len(hours) + len(neighborhoods) + len(business_categories) + len(categories) + len(business_neighborhoods) + len(attribute_businesses) + len(attributes) + len(businesses)
+output_file_count = 0
 
-for business_category in business_categories:
-  business_category = ('business_id', 'category_id') + business_category
-  insert = insert_format('business_category', business_category)
-  outputFile.write(insert)
+for business_id, business in businesses.items():
+  insert = insert_format('business', business)
+  output_file.write(insert)
 
-for category, category_pk in categories.items():
-  insert = insert_format('category', (category_pk, category))
-  outputFile.write(insert)
-
-for business_neighborhood in business_neighborhoods:
-  business_neighborhood = ('business_id', 'neighborhood_id') + business_neighborhood
-  insert = insert_format('business_neighborhood', business_neighborhood)
-  outputFile.write(insert)
-
-for neighborhood, neighborhood_pk in neighborhoods.items():
-  insert = insert_format('neighborhood', (neighborhood_pk, neighborhood))
-  outputFile.write(insert)
-
-for attribute_business in attribute_businesses:
-  attribute_business = ('attribute_id', 'business_id') + attribute_business
-  insert = insert_format('attribute_business', attribute_business)
-  outputFile.write(insert)
+  output_file_count = output_file_duration(output_file_size, output_file_count)
 
 for attribute, attribute_pk in attributes.items():
   final_attribute = {}
@@ -385,16 +372,155 @@ for attribute, attribute_pk in attributes.items():
   final_attribute['attribute_value'] = 1 if attribute[1] else 0
   final_attribute['attribute_id'] = attribute_pk
   insert = insert_format('attribute', final_attribute)
-  outputFile.write(insert)
+  output_file.write(insert)
 
-for business_id, business in businesses.items():
-  insert = insert_format('business', business)
-  outputFile.write(insert)
-outputFile.close()
+  output_file_count = output_file_duration(output_file_size, output_file_count)
 
+for attribute_business in attribute_businesses:
+  attribute_business = ('attribute_id', 'business_id') + attribute_business
+  insert = insert_format('attribute_business', attribute_business)
+  output_file.write(insert)
 
+  output_file_count = output_file_duration(output_file_size, output_file_count)
 
+for neighborhood, neighborhood_pk in neighborhoods.items():
+  insert = insert_format('neighborhood', (neighborhood_pk, neighborhood))
+  output_file.write(insert)
 
+  output_file_count = output_file_duration(output_file_size, output_file_count)
 
+for business_neighborhood in business_neighborhoods:
+  business_neighborhood = ('business_id', 'neighborhood_id') + business_neighborhood
+  insert = insert_format('business_neighborhood', business_neighborhood)
+  output_file.write(insert)
+
+  output_file_count = output_file_duration(output_file_size, output_file_count)
+
+for category, category_pk in categories.items():
+  insert = insert_format('category', (category_pk, category))
+  output_file.write(insert)
+
+  output_file_count = output_file_duration(output_file_size, output_file_count)
+
+for business_category in business_categories:
+  business_category = ('business_id', 'category_id') + business_category
+  insert = insert_format('business_category', business_category)
+  output_file.write(insert)
+
+  output_file_count = output_file_duration(output_file_size, output_file_count)
+
+for hour in hours:
+  insert = insert_format('hours', hour)
+  output_file.write(insert)
+
+  output_file_count = output_file_duration(output_file_size, output_file_count)
+
+print('Generating user.dml     [', end='')
+sys.stdout.flush()
+# User json output dml file
+output_file.close()
+output_file = open(os.path.join(outputDir, 'user.dml'), 'w')
+output_file.write('set define ~\n')
+output_file_size = len(user_friends) + len(compliments) + len(elite_year_users) + len(elite_years) + len(votes) + len(users)
+output_file_count = 0
+
+for user in users.values():
+  insert = insert_format('user', user)
+  output_file.write(insert)
+
+  output_file_count = output_file_duration(output_file_size, output_file_count)
+
+for vote in votes:
+  insert = insert_format('vote', vote)
+  output_file.write(insert)
+
+  output_file_count = output_file_duration(output_file_size, output_file_count)
+
+for elite_year, elite_year_pk in elite_years.items():
+  insert = insert_format('elite_year', (elite_year_pk, elite_year))
+  output_file.write(insert)
+
+  output_file_count = output_file_duration(output_file_size, output_file_count)
+
+for elite_year_user in elite_year_users:
+  elite_year_user = ('elite_year_id', 'yelper_id') + elite_year_user
+  insert = insert_format('elite_year_yelper', elite_year_user)
+  output_file.write(insert)
+
+  output_file_count = output_file_duration(output_file_size, output_file_count)
+
+for compliment in compliments:
+  insert = insert_format('compliment', compliment)
+  output_file.write(insert)
+
+  output_file_count = output_file_duration(output_file_size, output_file_count)
+
+for user_friend in user_friends:
+  user_friend = ('yelper_id', 'friend_id') + user_friend
+  insert = insert_format('yelper_friend', user_friend)
+  output_file.write(insert)
+
+  output_file_count = output_file_duration(output_file_size, output_file_count)
+
+print('Generating review.dml   [', end='')
+sys.stdout.flush()
+# Review json output dml file
+output_file.close()
+output_file = open(os.path.join(outputDir, 'review.dml'), 'w')
+output_file.write('set define ~\n')
+output_file_size = len(reviews)
+output_file_count = 0
+
+for review in reviews:
+  insert = insert_format('review', review)
+  output_file.write(insert)
+
+  output_file_count = output_file_duration(output_file_size, output_file_count)
+
+print('Generating checkin.dml  [', end='')
+sys.stdout.flush()
+# Checkin json output dml file
+output_file.close()
+output_file = open(os.path.join(outputDir, 'checkin.dml'), 'w')
+output_file.write('set define ~\n')
+output_file_size = len(checkins) + len(checkin_infos)
+output_file_count = 0
+
+for checkin in checkins:
+  insert = insert_format('checkin', checkin)
+  output_file.write(insert)
+  
+  output_file_count = output_file_duration(output_file_size, output_file_count)
+
+for checkin_info in checkin_infos:
+  insert = insert_format('checkin_info', checkin_info)
+  output_file.write(insert)
+  
+  output_file_count = output_file_duration(output_file_size, output_file_count)
+
+output_file.close()
+print('Generated in business.dml:')
+print('  {:>9,} businesses'.format(len(businesses)))
+print('  {:>9,} attributes'.format(len(attributes)))
+print('  {:>9,} attribute_businesses'.format(len(attribute_businesses)))
+print('  {:>9,} neighborhoods'.format(len(neighborhoods)))
+print('  {:>9,} business_neighborhoods'.format(len(business_neighborhoods)))
+print('  {:>9,} categories'.format(len(categories)))
+print('  {:>9,} business_categories'.format(len(business_categories)))
+print('  {:>9,} hours'.format(len(hours)))
+print('Generated in user.dml:')
+print('  {:>9,} users'.format(len(users)))
+print('  {:>9,} votes'.format(len(votes)))
+print('  {:>9,} elite_years'.format(len(elite_years)))
+print('  {:>9,} elite_year_users'.format(len(elite_year_users)))
+print('  {:>9,} compliments'.format(len(compliments)))
+print('  {:>9,} user_friends'.format(len(user_friends)))
+print('Generated in review.dml:')
+print('  {:>9,} reviews'.format(len(reviews)))
+print('Generated in checkin.dml:')
+print('  {:>9,} checkins'.format(len(checkins)))
+print('  {:>9,} checkin_infos'.format(len(checkin_infos)))
+
+print('{:,} total entries'.format(len(businesses) + len(attributes) + len(attribute_businesses) + len(business_neighborhoods) + len(business_categories) + len(hours) + len(users) + len(votes) + len(elite_years) + len(elite_year_users) + len(compliments) + len(user_friends) + len(reviews) + len(checkins) + len(checkin_infos)))
 
 

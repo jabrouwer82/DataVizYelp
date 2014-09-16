@@ -47,7 +47,7 @@ ggplot(data = users, aes(x = REVIEW_COUNT)) +
                alpha=.2) +
   geom_vline(aes(xintercept=mean(REVIEW_COUNT)))
 
-ggplot(users, aes(x = REVIEW_COUNT, y = AVERAGE_STARS)) +
+ggplot(subset(users, AVERAGE_STARS != 0), aes(x = REVIEW_COUNT, y = AVERAGE_STARS)) +
   geom_point(colour="#56B4E9") +
   geom_hline(aes(yintercept=mean(AVERAGE_STARS))) + 
   coord_cartesian(xlim=c(0, 3000))

@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="Relational_1" id="B0EEB2E1-D1A3-05DF-AE4A-573EFED15EC0" mainViewID="A3CC7AFD-D592-3BE2-830D-F3EA03ACCC9F">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-09 21:55:44 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>32076570-2523-435C-2E92-BF29817DFF70</selectedRDBMSSite>
+</relationalModel>

@@ -1,0 +1,56 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="074CA99C-E6CA-DC9B-8D13-C7B554CB7659" name="category">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-09 22:17:05 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<engineerTo>
+<item key="B0EEB2E1-D1A3-05DF-AE4A-573EFED15EC0" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="category_id" id="20F413B6-E824-6D50-6E74-AA1084C392BD">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-09 22:17:21 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<engineerTo>
+<item key="B0EEB2E1-D1A3-05DF-AE4A-573EFED15EC0" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Attribute>
+<Attribute name="category_name" id="4F42705A-98EF-7F27-A97B-ABBA0495E265">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-09 22:17:30 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<engineerTo>
+<item key="B0EEB2E1-D1A3-05DF-AE4A-573EFED15EC0" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="4975076F-DCFD-C9A5-06E5-BC9896D5D6A5" name="category PK">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-09 22:17:29 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<engineerTo>
+<item key="B0EEB2E1-D1A3-05DF-AE4A-573EFED15EC0" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>20F413B6-E824-6D50-6E74-AA1084C392BD</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

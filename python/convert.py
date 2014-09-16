@@ -565,4 +565,3 @@ print('{:>9,} checkin_infos'.format(len(checkin_infos)))
 
 print('{:,} total entries'.format(len(businesses) + len(attributes) + len(attribute_businesses) + len(business_neighborhoods) + len(business_categories) + len(hours) + len(users) + len(votes) + len(elite_years) + len(elite_year_users) + len(compliments) + len(user_friends) + len(reviews) + len(checkins) + len(checkin_infos)))
 
-

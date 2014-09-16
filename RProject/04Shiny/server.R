@@ -8,11 +8,11 @@ options(java.parameters="-Xmx2g")
 library(rJava)
 library(RJDBC)
 
-jdbcDriver <- JDBC(driverClass="oracle.jdbc.OracleDriver", classPath="/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/ojdbc6.jar")
+jdbcDriver <- JDBC(driverClass="oracle.jdbc.OracleDriver", classPath="/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/ojdbc6.jar")
 
 # In the following, use your username and password instead of "CS347_prof", "orcl_prof" once you have an Oracle account
 possibleError <- tryCatch(
-  jdbcConnection <- dbConnect(jdbcDriver, "jdbc:oracle:thin:@128.83.138.158:1521:orcl", "C##cs347_prof", "orcl_prof"),
+  jdbcConnection <- dbConnect(jdbcDriver, "jdbc:oracle:thin:@128.83.138.158:1521:orcl", "C##cs347_jab5948", "orcl_jab5948"),
   error=function(e) e
 )
 if(!inherits(possibleError, "error")){

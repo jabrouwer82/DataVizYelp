@@ -19,7 +19,7 @@ system("cat .Rprofile", intern = TRUE)
 
 ###Yelp Data Model
 
-![](./Yelp\ Data\ Model.png)  
+![](./YelpDataModel.png)  
 
 ###Yelp Data 
 

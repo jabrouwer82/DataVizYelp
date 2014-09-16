@@ -1,0 +1,10 @@
+INSERT INTO yelper (yelper_id, yelper_id_str, yelper_name, review_count, average_stars, yelping_since, fans) VALUES (27883, q'#TmASe-BvImVAEe6hSC6oSw#', q'#Greg#', 6, 4.33, to_date('2013-04', 'YYYY-MM'), 1);
+INSERT INTO yelper (yelper_id, yelper_id_str, yelper_name, review_count, average_stars, yelping_since, fans) VALUES (171442, q'#xeG6FneBvVEebZZQ3mxIxw#', q'#Danielle#', 2, 5.0, to_date('2013-02', 'YYYY-MM'), 0);
+INSERT INTO yelper (yelper_id, yelper_id_str, yelper_name, review_count, average_stars, yelping_since, fans) VALUES (112194, q'#nB8jGRnXcRLt-s9UdT_PhQ#', q'#Shannon#', 1, 5.0, to_date('2012-04', 'YYYY-MM'), 1);
+INSERT INTO yelper (yelper_id, yelper_id_str, yelper_name, review_count, average_stars, yelping_since, fans) VALUES (69195, q'#mTDwQ4I2hAHz2i5AC1ab3w#', q'#Christie#', 314, 3.69, to_date('2005-11', 'YYYY-MM'), 30);
+INSERT INTO yelper (yelper_id, yelper_id_str, yelper_name, review_count, average_stars, yelping_since, fans) VALUES (124774, q'#5QA888BgPj1Ln3Vqla99hg#', q'#Pedro#', 2, 3.0, to_date('2012-04', 'YYYY-MM'), 0);
+INSERT INTO yelper (yelper_id, yelper_id_str, yelper_name, review_count, average_stars, yelping_since, fans) VALUES (115472, q'#-o6LK0LdVlQcE2h7pdoFuA#', q'#Matt#', 1, 5.0, to_date('2013-05', 'YYYY-MM'), 0);
+INSERT INTO yelper (yelper_id, yelper_id_str, yelper_name, review_count, average_stars, yelping_since, fans) VALUES (248566, q'#XN32hHpbNYkny8SwJ5WOVQ#', q'#Lou C.#', 421, 3.67, to_date('2011-06', 'YYYY-MM'), 14);
+INSERT INTO yelper (yelper_id, yelper_id_str, yelper_name, review_count, average_stars, yelping_since, fans) VALUES (138309, q'#CepCmY5DDYoskMh0cmxLfA#', q'#Julie#', 3, 2.67, to_date('2013-02', 'YYYY-MM'), 0);
+INSERT INTO yelper (yelper_id, yelper_id_str, yelper_name, review_count, average_stars, yelping_since, fans) VALUES (134738, q'#UwnXA4ox3K9RMGaRwqgaBw#', q'#Nicole#', 14, 3.57, to_date('2010-12', 'YYYY-MM'), 0);
+INSERT INTO yelper (yelper_id, yelper_id_str, yelper_name, review_count, average_stars, yelping_since, fans) VALUES (180503, q'#sxULQivO3NiCIDmWfZDSnA#', q'#Shari#', 3, 2.33, to_date('2012-12', 'YYYY-MM'), 1);

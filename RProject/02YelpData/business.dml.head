@@ -1,0 +1,17 @@
+INSERT INTO business (business_id, business_id_str, business_name, address, city, state, latitude, longitude, stars, review_count, business_open) VALUES (39630, q'#OlpyplEJ_c_hFxyand_Wxw#', q'#Inchin Bamboo Garden#', q'#10050 N Scottsdale Rd
+Ste 121
+Paradise Valley, AZ 85253#', q'#Paradise Valley#', q'#AZ#', 33.575816, -111.926234, 3.5, 44, q'#1#');
+INSERT INTO business (business_id, business_id_str, business_name, address, city, state, latitude, longitude, stars, review_count, business_open) VALUES (33751, q'#MJtnKhA3l-2ZFzhneuSccw#', q'#The Steakhouse at The Pass#', q'#2800 S Boulder Hwy
+Henderson, NV 89002#', q'#Henderson#', q'#NV#', 35.9720758434016, -114.91103930658, 4.0, 9, q'#1#');
+INSERT INTO business (business_id, business_id_str, business_name, address, city, state, latitude, longitude, stars, review_count, business_open) VALUES (11191, q'#s5yzZITWU_RcJzWOgjFecw#', q'#Sergio's Italian Gardens#', q'#1955 E Tropicana Ave
+Eastside
+Las Vegas, NV 89119#', q'#Las Vegas#', q'#NV#', 36.100414, -115.1265829, 4.0, 67, q'#1#');
+INSERT INTO business (business_id, business_id_str, business_name, address, city, state, latitude, longitude, stars, review_count, business_open) VALUES (598, q'#VZYMInkjRJVHwXVFqeoMWg#', q'#Jack-In-the-Box#', q'#3215 N Central Ave
+Phoenix, AZ 85012#', q'#Phoenix#', q'#AZ#', 33.486194, -112.073895, 3.5, 4, q'#1#');
+INSERT INTO business (business_id, business_id_str, business_name, address, city, state, latitude, longitude, stars, review_count, business_open) VALUES (22387, q'#FFdlPSZCGgTdg1CAfrlvlw#', q'#Native New Yorker#', q'#1339 E Chandler Blvd
+Phoenix, AZ 85048#', q'#Phoenix#', q'#AZ#', 33.3052457, -112.0534296, 3.5, 31, q'#1#');
+INSERT INTO business (business_id, business_id_str, business_name, address, city, state, latitude, longitude, stars, review_count, business_open) VALUES (35617, q'#z_LY6PK0Vv-iLQxrIGQIWw#', q'#Trish And Ed's Organics#', q'#8876 S Eastern Ave
+Ste 100
+Las Vegas, NV 89123#', q'#Las Vegas#', q'#NV#', 36.0291019, -115.1149607, 4.0, 9, q'#1#');
+INSERT INTO business (business_id, business_id_str, business_name, address, city, state, latitude, longitude, stars, review_count, business_open) VALUES (33280, q'#_xU5miVqAMe1EC_rgLV3Og#', q'#Heart Savers#', q'#1530 N Country Club Dr
+Ste 13

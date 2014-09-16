@@ -3,7 +3,7 @@ library("lubridate", lib.loc="/Library/Frameworks/R.framework/Versions/3.0/Resou
 options(java.parameters="-Xmx2g")
 library(rJava)
 library(RJDBC)
-library(sp)
+library(ggmap)
 
 jdbcDriver <- JDBC(driverClass="oracle.jdbc.OracleDriver", classPath="/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/ojdbc6.jar")
 

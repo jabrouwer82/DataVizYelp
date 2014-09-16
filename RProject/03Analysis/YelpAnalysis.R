@@ -73,7 +73,4 @@ p2 <- ggplot(subset(businesses, CITY == "Madison"), aes(x=LONGITUDE, y=LATITUDE,
 p3 <- ggplot(subset(businesses, CITY == "Edinburgh"), aes(x=LONGITUDE, y=LATITUDE, color = BUSINESS_OPEN)) + geom_point() + ggtitle("Edinburgh") + theme(legend.position="none")
 p4 <- ggplot(subset(businesses, CITY == "Las Vegas"), aes(x=LONGITUDE, y=LATITUDE, color = BUSINESS_OPEN)) + geom_point() + ggtitle("Las Vegas") + theme(legend.position="none")
 multiplot(p1, p2, p3, p4, cols=2)
-#ggplot(subset(diamonds, NAME == 'ZALE CORP' | NAME == 'TIFFANY CO'), aes(x = NAME, y = price)) + geom_point()
-#ggplot(subset(diamonds, year(SALES_DATE) == "2009"), aes(x = paste(year(SALES_DATE), month(SALES_DATE),sep="-"), y = price)) + geom_point()
-
 

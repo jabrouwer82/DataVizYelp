@@ -3,8 +3,7 @@ library("lubridate", lib.loc="/Library/Frameworks/R.framework/Versions/3.0/Resou
 options(java.parameters="-Xmx2g")
 library(rJava)
 library(RJDBC)
-library(png)
-library(grid)
+library(sp)
 
 jdbcDriver <- JDBC(driverClass="oracle.jdbc.OracleDriver", classPath="/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/ojdbc6.jar")
 
@@ -53,11 +52,14 @@ ggplot(users, aes(x = REVIEW_COUNT, y = AVERAGE_STARS)) +
   geom_hline(aes(yintercept=mean(AVERAGE_STARS))) + 
   coord_cartesian(xlim=c(0, 3000))
 
+phoenix_map <- ggmap(get_googlemap("Phoenix, AZ"))
+las_vegas_map <- ggmap(get_googlemap("Las Vegas, NV"))
+edinburgh_map <- ggmap(get_googlemap("Edinburgh, UK"))
+madison_map = ggmap(get_googlemap("Madison, WI"))
 
-phoenix_map = rasterGrob(readPNG("./phoenix_map.png"), interpolate=TRUE)
 b = c(1, 2, 3, 4, 5)
-ggplot(phoenix, aes(x=LONGITUDE, y=LATITUDE, color = STARS)) + geom_point() + ggtitle("Phoenix") + scale_colour_gradientn(limits = c(1, 5), colours = rainbow(3), breaks=b, labels=format(b))# + theme(legend.position="none")
-ggplot(madison, aes(x=LONGITUDE, y=LATITUDE, color = STARS)) + geom_point() + ggtitle("Madison") + scale_colour_gradientn(limits = c(1, 5), colours = rainbow(3), breaks=b, labels=format(b))# + theme(legend.position="none")
-ggplot(edinburgh, aes(x=LONGITUDE, y=LATITUDE, color = STARS)) + geom_point() + ggtitle("Edinburgh") + scale_colour_gradientn(limits = c(1, 5), colours = rainbow(3), breaks=b, labels=format(b))# + theme(legend.position="none")
-ggplot(las_vegas, aes(x=LONGITUDE, y=LATITUDE, color = STARS)) + geom_point() + ggtitle("Las Vegas") + scale_colour_gradientn(limits = c(1, 5), colours = rainbow(3), breaks=b, labels=format(b))# + theme(legend.position="none")
+phoenix_map + geom_point(data=phoenix, aes(x=LONGITUDE, y=LATITUDE, color = STARS)) + ggtitle("Phoenix") + scale_colour_gradientn(limits = c(1, 5), colours = rainbow(3), breaks=b, labels=format(b))# + theme(legend.position="none")
+madison_map + geom_point(data=madison, aes(x=LONGITUDE, y=LATITUDE, color = STARS)) + ggtitle("Madison") + scale_colour_gradientn(limits = c(1, 5), colours = rainbow(3), breaks=b, labels=format(b))# + theme(legend.position="none")
+edinburgh_map + geom_point(data=edinburgh, aes(x=LONGITUDE, y=LATITUDE, color = STARS)) + ggtitle("Edinburgh") + scale_colour_gradientn(limits = c(1, 5), colours = rainbow(3), breaks=b, labels=format(b))# + theme(legend.position="none")
+las_vegas_map + geom_point(data=las_vegas, aes(x=LONGITUDE, y=LATITUDE, color = STARS)) + ggtitle("Las Vegas") + scale_colour_gradientn(limits = c(1, 5), colours = rainbow(3), breaks=b, labels=format(b))# + theme(legend.position="none")
 

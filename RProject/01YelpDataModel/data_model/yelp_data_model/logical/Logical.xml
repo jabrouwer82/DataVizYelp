@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="2F805769-3BEC-890D-71E1-72B3BEDF4265" mainViewID="59A2A1A2-78A1-3F55-79B5-3EED927C9080">
-<createdBy>jacobbrouwer</createdBy>
-<createdTime>2014-09-09 21:55:17 UTC</createdTime>
-<ownerDesignName>yelp_data_model</ownerDesignName>
-<shouldBeOpen>false</shouldBeOpen>
-</LogicalDesign>

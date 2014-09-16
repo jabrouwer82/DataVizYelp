@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="B6628032-6E0D-3BE3-9320-71AFDDA5B370">
-<createdBy>jacobbrouwer</createdBy>
-<createdTime>2014-09-09 21:55:18 UTC</createdTime>
-<ownerDesignName>yelp_data_model</ownerDesignName>
-<shouldBeOpen>false</shouldBeOpen>
-</ProcessModel>

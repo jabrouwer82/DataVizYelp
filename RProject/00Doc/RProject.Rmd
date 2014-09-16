@@ -60,7 +60,7 @@ source("../03Analysis/YelpAnalysis.R", echo = TRUE)
 ```
 
 ```{r}
-library(shinyapps)
+#library(shinyapps)
 getwd()
 # Uncomment the following line to deploy the app.
 # deployApp("../04Shiny")

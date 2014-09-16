@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="34F1B77E-525E-E581-D495-A28751037385" name="neighborhood">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>6E97074E-3F15-4867-95F5-85686DD1A6B1</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="neighborhood_id" id="28B08F42-DF78-9A9E-B809-E85FE3BF9E06">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>79300F01-90FA-5A87-27B0-C2EF189E74FB</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>DEFA863C-A883-B3BC-75E0-C017A16C5252</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="neighborhood_name" id="8E46CACF-6100-488C-A86D-43CFA9F0BC7C">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>2EFD08E5-8727-C774-88AC-691C1CD99AA6</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>04D64671-1AD1-CF9A-B6C2-5E212468B60E</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A5FA8229-B84C-5EC5-FAE2-FAF4B7B1D1EF" name="neighborhood_PK">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>47FAFA7A-ABFD-71DE-07C4-DEE339CBB48A</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="28B08F42-DF78-9A9E-B809-E85FE3BF9E06"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

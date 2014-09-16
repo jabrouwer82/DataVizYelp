@@ -1,0 +1,4 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="main_view" objectID="5047B682-7D59-2690-C003-26C50649AA3C" name="yelp" visible="true"/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

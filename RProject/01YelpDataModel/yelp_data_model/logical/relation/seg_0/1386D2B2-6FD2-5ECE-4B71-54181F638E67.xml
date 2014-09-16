@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="checkin_info_checkin_FK" directorySegmentName="seg_0" id="1386D2B2-6FD2-5ECE-4B71-54181F638E67">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:07:30 UTC</createdTime>
+<generatorID>FDBD4BD1-43DE-6726-B8E1-7FB9400C9AF6</generatorID>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<engineerTo>
+<item key="38B64BFD-E9C9-3BAC-A5EF-ED76D142F76D" value="true"/>
+<item key="2BAED1B3-5C7C-4BAD-DA82-B51199A1029D" value="true"/>
+</engineerTo>
+<sourcePk>C3F3BD55-1527-5591-80B2-2D268360F9ED</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>F1A17EB7-EFF3-99C8-8E9D-780ACE33FA47</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>4B921B0E-D3CE-7D84-F8DB-709892B56C71</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

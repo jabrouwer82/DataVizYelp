@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D3B1F7AE-6CA6-45F7-F0B5-EE40261637F3" name="yelper">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>FCA0B2EA-75D2-25D6-F272-6D389C2C00D7</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="yelper_id" id="66097499-B478-131A-375E-79F6EAE448E8">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>A90EF20F-6A5F-EEE5-B9D3-7321F26C71BB</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>DEFA863C-A883-B3BC-75E0-C017A16C5252</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="yelper_id_str" id="3B1544BB-7F6A-1BFC-135E-C8F15FAA47CA">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>07A72E24-19DA-DB11-9DF5-CCA1CBF741D4</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6FB906D8-12A1-6C50-2113-7C75C327CE03</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="yelper_name" id="9BD04DCC-0078-C70C-9CC7-CD169160327B">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>F783A90F-C64B-6916-02DF-A54A5BDF621D</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>04D64671-1AD1-CF9A-B6C2-5E212468B60E</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="review_count" id="4EE67581-87FA-1166-9788-C226E2AD267C">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>801124A3-5F28-36A1-DB2D-857D0F090F58</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>DEFA863C-A883-B3BC-75E0-C017A16C5252</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="average_stars" id="4C5FD81A-60AF-56E9-DAC0-A34330E999A5">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>D9F09C6D-4915-692B-B636-414F8EE39773</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>C5A3C66D-0EDE-145A-DB96-2C296F139453</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="yelping_since" id="D1AD4F9B-BF86-111D-ED1F-0D2DE216048F">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>ACD56F0B-49AD-B1FA-5314-7FC83E63660A</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>B736AF43-62C5-C75E-78ED-40DAB9D0A841</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fans" id="1B30E3FE-89E2-0888-1C6C-E01173166007">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>A645C153-8CB8-FC45-6C28-48819B4C89E5</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>DEFA863C-A883-B3BC-75E0-C017A16C5252</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4C00360B-D3EC-74FA-B59D-B69E5FE2C9E2" name="yelper_PK">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>621402AC-454E-E305-4FFC-D0F6A1DBF078</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="66097499-B478-131A-375E-79F6EAE448E8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

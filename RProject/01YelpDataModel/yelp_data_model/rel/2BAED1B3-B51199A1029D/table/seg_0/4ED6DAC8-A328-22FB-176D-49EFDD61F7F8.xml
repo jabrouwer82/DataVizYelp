@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4ED6DAC8-A328-22FB-176D-49EFDD61F7F8" name="checkin_info">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>09AD99CA-F2D0-03F1-5644-F38071F46A2B</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="checkin_info_id" id="64E73340-F123-4CF8-BD7A-CD0352CD66B9">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>EE518B28-6E93-9AA6-8A4C-6424BD7076B0</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>DEFA863C-A883-B3BC-75E0-C017A16C5252</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="checkin_time" id="5959A276-5A59-0193-C236-70ECDEEF6A76">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>2F3778EB-9467-6A63-FDA9-CB30F4E49439</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>04D64671-1AD1-CF9A-B6C2-5E212468B60E</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="checkin_count" id="D6144E2F-1B7C-C81F-BC28-7F17938F134D">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>35E8D953-D822-B4EC-E240-9709912811D6</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>DEFA863C-A883-B3BC-75E0-C017A16C5252</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="checkin_id" id="FE222673-8FCF-FBE1-DE0E-C7B1966D8CA0">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>3DDE075D-1C4E-078E-406A-FEE848E6F888</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>DEFA863C-A883-B3BC-75E0-C017A16C5252</domain>
+<delegate>0005EAB7-6B0D-9C3D-F8F0-385DF0FFF703</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FDBD4BD1-43DE-6726-B8E1-7FB9400C9AF6" referredColumn="0005EAB7-6B0D-9C3D-F8F0-385DF0FFF703"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="405876CE-861C-C831-10F1-635441BF6C25" name="checkin_info_PK">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>08751FBA-07B6-E374-9899-62AB33E8D3C1</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="64E73340-F123-4CF8-BD7A-CD0352CD66B9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6B53A390-4AD9-5925-13AB-6B2195FE60A1" name="checkin_info_checkin_FK">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FE222673-8FCF-FBE1-DE0E-C7B1966D8CA0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

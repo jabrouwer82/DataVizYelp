@@ -1,0 +1,126 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2592A3FE-C5C8-B248-80D4-D213D04E23A0" name="review">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>77C611DE-6B3A-0EB2-ED8F-B0E07BDE1031</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="review_id" id="4FC44FC8-9D75-51F5-AEFD-FC54B76C5483">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>AEA8B04D-BBA0-DCB4-8D5D-9ABAB148B86D</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>DEFA863C-A883-B3BC-75E0-C017A16C5252</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="yelper_id" id="F3F112B5-666B-32FE-E640-B54A754790DE">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>7332D094-10B5-6168-1C69-CFCBF43213C0</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>DEFA863C-A883-B3BC-75E0-C017A16C5252</domain>
+<delegate>66097499-B478-131A-375E-79F6EAE448E8</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D2977F52-6948-5BB3-5105-379AE7A5D49B" referredColumn="66097499-B478-131A-375E-79F6EAE448E8"/>
+</associations>
+</Column>
+<Column name="stars" id="73918C91-1733-D9C4-0AF1-5037F6E7F4B2">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>78E545E0-C738-8FBB-0A7F-4FFF93D5ADFF</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>7A6803DB-D359-7DDB-E280-578368E896C6</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="text" id="9A43245B-C324-68B4-F304-D42EFB89E047">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>222D9CAF-D1DB-6B42-7FF0-01398E5CBE2B</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>04D64671-1AD1-CF9A-B6C2-5E212468B60E</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="review_date" id="E446DEA5-EC8F-4FC4-A7F2-1A95E9ACCE8B">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>5E2D737F-A3B3-E92D-6314-F3E0E2F6FE1B</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>B736AF43-62C5-C75E-78ED-40DAB9D0A841</domain>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="business_id" id="BF3F88FF-45F7-EB54-8E49-E6E5435A1347">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>C86FE754-9050-F8A1-49EA-CF6E62A15BA9</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>DEFA863C-A883-B3BC-75E0-C017A16C5252</domain>
+<delegate>E075B397-A164-5965-B5F4-B9596ABC287D</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2092D38C-96A6-FEA5-FAA0-8AC1D3099527" referredColumn="E075B397-A164-5965-B5F4-B9596ABC287D"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E6797999-1B6D-8B51-CA9B-D604D5D12F13" name="review_PK">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>3B7F0CB2-E237-0E4C-B2DB-98DAA44BF975</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4FC44FC8-9D75-51F5-AEFD-FC54B76C5483"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="86861C12-0AD9-D797-560A-CE10F29485EF" name="review_business_FK">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BF3F88FF-45F7-EB54-8E49-E6E5435A1347"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="452F6B15-3CDF-CF3F-A35E-9058C7002D2D" name="review_yelper_FK">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F3F112B5-666B-32FE-E640-B54A754790DE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

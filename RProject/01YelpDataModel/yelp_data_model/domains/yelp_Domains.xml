@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<DomainFile class="oracle.dbtools.crest.model.design.DomainFileWrapper" fileName="yelp_Domains">
+   <domains>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_4000" id="04D64671-1AD1-CF9A-B6C2-5E212468B60E">
+         <createdBy>jacobbrouwer</createdBy>
+         <createdTime>2014-09-16 01:02:55 UTC</createdTime>
+         <ownerDesignName>yelp_data_model</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>4000</dataTypeSize>
+         <fileName>yelp_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_30" id="6FB906D8-12A1-6C50-2113-7C75C327CE03">
+         <createdBy>jacobbrouwer</createdBy>
+         <createdTime>2014-09-16 01:02:55 UTC</createdTime>
+         <ownerDesignName>yelp_data_model</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>30</dataTypeSize>
+         <fileName>yelp_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_2_1_0" id="7A6803DB-D359-7DDB-E280-578368E896C6">
+         <createdBy>jacobbrouwer</createdBy>
+         <createdTime>2014-09-16 01:02:55 UTC</createdTime>
+         <ownerDesignName>yelp_data_model</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>2</dataTypePrecision>
+         <dataTypeScale>1</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>yelp_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_18_15_0" id="7E8B0EE1-2109-27AC-33B3-B2906CC4EB15">
+         <createdBy>jacobbrouwer</createdBy>
+         <createdTime>2014-09-16 01:02:55 UTC</createdTime>
+         <ownerDesignName>yelp_data_model</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>18</dataTypePrecision>
+         <dataTypeScale>15</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>yelp_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="Date_0_0_0" id="B736AF43-62C5-C75E-78ED-40DAB9D0A841">
+         <createdBy>jacobbrouwer</createdBy>
+         <createdTime>2014-09-16 01:02:55 UTC</createdTime>
+         <ownerDesignName>yelp_data_model</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <fileName>yelp_Domains</fileName>
+         <logicalDatatype>LOGDT007</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_18_17_0" id="C5A3C66D-0EDE-145A-DB96-2C296F139453">
+         <createdBy>jacobbrouwer</createdBy>
+         <createdTime>2014-09-16 01:02:55 UTC</createdTime>
+         <ownerDesignName>yelp_data_model</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>18</dataTypePrecision>
+         <dataTypeScale>17</dataTypeScale>
+         <dataTypeSize>0</dataTypeSize>
+         <fileName>yelp_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_0_0_0" id="DEFA863C-A883-B3BC-75E0-C017A16C5252">
+         <createdBy>jacobbrouwer</createdBy>
+         <createdTime>2014-09-16 01:02:55 UTC</createdTime>
+         <ownerDesignName>yelp_data_model</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <fileName>yelp_Domains</fileName>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Domain>
+   </domains>
+</DomainFile>

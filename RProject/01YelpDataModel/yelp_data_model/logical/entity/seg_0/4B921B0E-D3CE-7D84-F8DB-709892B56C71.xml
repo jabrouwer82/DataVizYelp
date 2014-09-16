@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4B921B0E-D3CE-7D84-F8DB-709892B56C71" name="checkin info">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:07:30 UTC</createdTime>
+<generatorID>4ED6DAC8-A328-22FB-176D-49EFDD61F7F8</generatorID>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<engineerTo>
+<item key="38B64BFD-E9C9-3BAC-A5EF-ED76D142F76D" value="true"/>
+<item key="2BAED1B3-5C7C-4BAD-DA82-B51199A1029D" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="checkin info id" id="01C1F8CF-2ABB-9A64-4658-30E8D4AF1195">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:07:30 UTC</createdTime>
+<generatorID>64E73340-F123-4CF8-BD7A-CD0352CD66B9</generatorID>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<engineerTo>
+<item key="38B64BFD-E9C9-3BAC-A5EF-ED76D142F76D" value="true"/>
+<item key="2BAED1B3-5C7C-4BAD-DA82-B51199A1029D" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>DEFA863C-A883-B3BC-75E0-C017A16C5252</domain>
+</Attribute>
+<Attribute name="checkin time" id="7F6AE5E8-9BCF-E82C-38F6-52516D814903">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:07:30 UTC</createdTime>
+<generatorID>5959A276-5A59-0193-C236-70ECDEEF6A76</generatorID>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<engineerTo>
+<item key="38B64BFD-E9C9-3BAC-A5EF-ED76D142F76D" value="true"/>
+<item key="2BAED1B3-5C7C-4BAD-DA82-B51199A1029D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>04D64671-1AD1-CF9A-B6C2-5E212468B60E</domain>
+</Attribute>
+<Attribute name="checkin count" id="D4E2154A-0F64-C80F-9443-92F4F2B62585">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:07:30 UTC</createdTime>
+<generatorID>D6144E2F-1B7C-C81F-BC28-7F17938F134D</generatorID>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<engineerTo>
+<item key="38B64BFD-E9C9-3BAC-A5EF-ED76D142F76D" value="true"/>
+<item key="2BAED1B3-5C7C-4BAD-DA82-B51199A1029D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>DEFA863C-A883-B3BC-75E0-C017A16C5252</domain>
+</Attribute>
+<Attribute name="checkin id" id="E5D95583-BC21-82B2-03DB-D4F71CCE1033">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:07:30 UTC</createdTime>
+<generatorID>1386D2B2-6FD2-5ECE-4B71-54181F638E67</generatorID>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<engineerTo>
+<item key="38B64BFD-E9C9-3BAC-A5EF-ED76D142F76D" value="true"/>
+<item key="2BAED1B3-5C7C-4BAD-DA82-B51199A1029D" value="true"/>
+</engineerTo>
+<referedAttribute>1FBBFF72-3D97-F7A1-B650-57F87B999FC5</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>DEFA863C-A883-B3BC-75E0-C017A16C5252</domain>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8974F536-CF4C-96C4-8B30-BD8B418B85AB" name="checkin info PK">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:07:30 UTC</createdTime>
+<generatorID>405876CE-861C-C831-10F1-635441BF6C25</generatorID>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<engineerTo>
+<item key="38B64BFD-E9C9-3BAC-A5EF-ED76D142F76D" value="true"/>
+<item key="2BAED1B3-5C7C-4BAD-DA82-B51199A1029D" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>01C1F8CF-2ABB-9A64-4658-30E8D4AF1195</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,31 +1,38 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <oracle.dbtools.crest.model.design.logical.LogicalDesign>
-   <object objectType="Entity" objectID="A47AB39F-362D-4C8A-34CE-3583C029F33D" name="attribute" seqName="seg_0"/>
-   <object objectType="Entity" objectID="DD0A6AAE-8A44-F0F4-9964-7334B4F02F2C" name="business" seqName="seg_0"/>
-   <object objectType="Entity" objectID="074CA99C-E6CA-DC9B-8D13-C7B554CB7659" name="category" seqName="seg_0"/>
-   <object objectType="Entity" objectID="51BA3A88-C56D-8C8E-D77A-95CF51791944" name="checkin" seqName="seg_0"/>
-   <object objectType="Entity" objectID="0A67ABE2-9998-F554-69E5-E50DBB848E93" name="checkin_info" seqName="seg_0"/>
-   <object objectType="Entity" objectID="743C3934-4D31-BC91-2219-1806D57E2DA0" name="compliment" seqName="seg_0"/>
-   <object objectType="Entity" objectID="6A1367AC-F1AA-B771-C906-6A05FC47BD84" name="elite_year" seqName="seg_0"/>
-   <object objectType="Entity" objectID="9A4AD768-EE2A-C548-D630-2FD2A43FD813" name="hours" seqName="seg_0"/>
-   <object objectType="Entity" objectID="6FFE23FA-9C24-68BC-9C5C-B705A7397C82" name="neighborhood" seqName="seg_0"/>
-   <object objectType="Entity" objectID="C7C6AC32-4A8E-0DC5-8AD3-C732BEC3170C" name="review" seqName="seg_0"/>
-   <object objectType="Entity" objectID="BD3A64F8-D89C-3E72-F6A3-420A4F5E65CB" name="tip" seqName="seg_0"/>
-   <object objectType="Entity" objectID="281AEF89-B724-71B0-29D9-D3697EE2D81C" name="user" seqName="seg_0"/>
-   <object objectType="Entity" objectID="543759AA-BFA7-DE45-8570-22D30A5B71BF" name="vote" seqName="seg_0"/>
-   <object objectType="Relation" objectID="CA6A04CB-B728-56C6-BC0F-5504C70D9D00" name="Relation_1" seqName="seg_0"/>
-   <object objectType="Relation" objectID="80FD79F2-3047-5AE8-E24A-87A3C0C0B936" name="Relation_13" seqName="seg_0"/>
-   <object objectType="Relation" objectID="488A1DF0-3633-A397-DF06-C913E174ADB5" name="Relation_14" seqName="seg_0"/>
-   <object objectType="Relation" objectID="E6499272-53E7-C685-EA36-5129140F0E10" name="Relation_15" seqName="seg_0"/>
-   <object objectType="Relation" objectID="2DE43F9A-9415-1C5B-50DA-38EA097CD526" name="Relation_16" seqName="seg_0"/>
-   <object objectType="Relation" objectID="077C0903-2E7F-D9D5-892E-5E5568B58B92" name="Relation_17" seqName="seg_0"/>
-   <object objectType="Relation" objectID="9660FC84-3762-6A6D-21E7-299B67F6241F" name="Relation_18" seqName="seg_0"/>
-   <object objectType="Relation" objectID="44E1992D-841B-2F0F-F65A-B0F1C29F33D0" name="Relation_19" seqName="seg_0"/>
-   <object objectType="Relation" objectID="5EC96039-D63A-3D08-24A7-A93B70894152" name="Relation_2" seqName="seg_0"/>
-   <object objectType="Relation" objectID="F5D3744E-0529-1A1F-6783-5EB9503B8230" name="Relation_3" seqName="seg_0"/>
-   <object objectType="Relation" objectID="4D2F6B06-5870-FA75-BA32-D5FDE4C65198" name="Relation_4" seqName="seg_0"/>
-   <object objectType="Relation" objectID="159F2192-2351-FB90-C7EB-D2DDAE568ECE" name="Relation_6" seqName="seg_0"/>
-   <object objectType="Relation" objectID="D875B705-90D2-83FA-4B3D-C6B2BCC4C94C" name="Relation_7" seqName="seg_0"/>
-   <object objectType="Relation" objectID="68EEFF8D-6FE4-5306-1AF2-3224889822ED" name="Relation_8" seqName="seg_0"/>
-   <object objectType="Relation" objectID="3D5D47F1-0D58-CA33-AA4E-2A11D3BB9C36" name="Relation_9" seqName="seg_0"/>
+   <object objectType="Entity" objectID="A0119228-843B-AF19-4D79-B20DE130BCE7" name="Attribute business" seqName="seg_0"/>
+   <object objectType="Entity" objectID="A1243CA7-3AAA-B3C9-25BF-5A565003F650" name="Business category" seqName="seg_0"/>
+   <object objectType="Entity" objectID="DC0EE909-9746-A44E-DEAF-D2FD7342AC0D" name="Business neighborhood" seqName="seg_0"/>
+   <object objectType="Entity" objectID="F7E3FD7C-518A-A733-78B9-10DD245CDD42" name="Elite year yelper" seqName="seg_0"/>
+   <object objectType="Entity" objectID="A195EED6-9C17-505F-635F-8DB1A853952C" name="Yelper friend" seqName="seg_0"/>
+   <object objectType="Entity" objectID="4A6377DD-179B-D683-353A-4808C10ED00D" name="attribute" seqName="seg_0"/>
+   <object objectType="Entity" objectID="CE59EEBF-5AA4-0ACF-C4FF-1D60F72D3253" name="business" seqName="seg_0"/>
+   <object objectType="Entity" objectID="85860102-55CE-288B-A96A-8235A5B0838A" name="category" seqName="seg_0"/>
+   <object objectType="Entity" objectID="F1A17EB7-EFF3-99C8-8E9D-780ACE33FA47" name="checkin" seqName="seg_0"/>
+   <object objectType="Entity" objectID="4B921B0E-D3CE-7D84-F8DB-709892B56C71" name="checkin info" seqName="seg_0"/>
+   <object objectType="Entity" objectID="ED1CEAE2-8E88-840C-6517-C0FDF2C2C2CB" name="compliment" seqName="seg_0"/>
+   <object objectType="Entity" objectID="0EB1B936-C4D4-04BF-46BB-0604ADD8F309" name="elite year" seqName="seg_0"/>
+   <object objectType="Entity" objectID="51E1C949-1254-8AA0-236B-38705FA503FA" name="hours" seqName="seg_0"/>
+   <object objectType="Entity" objectID="4D031FDD-E5D0-AFE3-8200-81B94BB93F66" name="neighborhood" seqName="seg_0"/>
+   <object objectType="Entity" objectID="E413D0E8-5B96-B9A6-C3BE-302DB4E9D55B" name="review" seqName="seg_0"/>
+   <object objectType="Entity" objectID="CD38FEAA-3B48-C5CB-1730-2FC28BD5397C" name="vote" seqName="seg_0"/>
+   <object objectType="Entity" objectID="7B44C06D-5571-0B57-0BB8-49E8F60EC46D" name="yelper" seqName="seg_0"/>
+   <object objectType="Relation" objectID="94617CAE-7DF5-23DE-70CB-FC5C641379FD" name="FK_ASS_1" seqName="seg_0"/>
+   <object objectType="Relation" objectID="BCA65E5C-8866-5041-B9A5-7E7123144350" name="FK_ASS_10" seqName="seg_0"/>
+   <object objectType="Relation" objectID="C78E8219-DD11-66D4-5547-409779D87B33" name="FK_ASS_12" seqName="seg_0"/>
+   <object objectType="Relation" objectID="F965300B-4610-5977-6BF0-DA07A8E2AD60" name="FK_ASS_13" seqName="seg_0"/>
+   <object objectType="Relation" objectID="A3709C26-A18B-5F27-0554-B91AFA481486" name="FK_ASS_19" seqName="seg_0"/>
+   <object objectType="Relation" objectID="CD44459F-A79B-626B-7CBC-5918FFEE805B" name="FK_ASS_2" seqName="seg_0"/>
+   <object objectType="Relation" objectID="ACEC308F-6A32-077D-7BC8-B5ABA6A03A7F" name="FK_ASS_20" seqName="seg_0"/>
+   <object objectType="Relation" objectID="2AE50267-59E4-B7D4-3471-DDB322586F99" name="FK_ASS_3" seqName="seg_0"/>
+   <object objectType="Relation" objectID="42662DBC-9AA4-C78D-3F93-DCB0A34274BA" name="FK_ASS_4" seqName="seg_0"/>
+   <object objectType="Relation" objectID="73AAAABB-F0F1-4A55-BC92-C7FD1E077884" name="FK_ASS_9" seqName="seg_0"/>
+   <object objectType="Relation" objectID="778A9E12-59C4-7744-68FA-A1B7A4E40319" name="checkin_business_FK" seqName="seg_0"/>
+   <object objectType="Relation" objectID="1386D2B2-6FD2-5ECE-4B71-54181F638E67" name="checkin_info_checkin_FK" seqName="seg_0"/>
+   <object objectType="Relation" objectID="CE7ECB5E-7B92-5962-9EED-73CD52751298" name="compliment_yelper_FK" seqName="seg_0"/>
+   <object objectType="Relation" objectID="166591AC-7098-273C-048C-DFE34E478F42" name="hours_business_FK" seqName="seg_0"/>
+   <object objectType="Relation" objectID="A39E247F-F354-8785-A9C9-3DEB21D24229" name="review_business_FK" seqName="seg_0"/>
+   <object objectType="Relation" objectID="2254E3A2-9038-2B07-3268-1864C7C3FAEF" name="review_yelper_FK" seqName="seg_0"/>
+   <object objectType="Relation" objectID="8226747E-FAD6-02B4-ED5B-AF4A25DCC00B" name="vote_review_FK" seqName="seg_0"/>
+   <object objectType="Relation" objectID="B9300927-0EA3-3B5C-C72C-C8C40F653300" name="vote_yelper_FK" seqName="seg_0"/>
 </oracle.dbtools.crest.model.design.logical.LogicalDesign>

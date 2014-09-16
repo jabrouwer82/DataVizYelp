@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="business" directorySegmentName="seg_0" id="68B849F1-3F68-CCBD-1A7A-67961511862D">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="address" id="0254F87B-3675-0AA1-AE8B-094B230FE53E">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="longitude" id="03AC6A52-5C35-E138-BF44-EF332F11E620">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="business_id_str" id="087B7F52-9F4C-B95F-1993-2D70C74D6319">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="city" id="532E6D48-D031-68D3-2BE4-1ABCD605FE2A">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="state" id="5A6CFC44-3BB2-82AE-C144-AA25CB59B4E7">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="business_name" id="685E4829-E7EA-47D9-9026-2FDBD4B54182">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="review_count" id="C76413A9-1BA6-9055-87B0-0B68B473692D">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="latitude" id="D4AEEB93-DE03-4125-D7E2-2F3E70E67538">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="business_id" id="E075B397-A164-5965-B5F4-B9596ABC287D">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="business_open" id="EC1B472C-E847-CCC0-455A-932D97FC605B">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="stars" id="FC823978-4E90-E46E-A02D-165B29E5FE7D">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="business_PK" id="5679D180-C58C-59D2-B4BD-5CD5A2ABFF3B">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

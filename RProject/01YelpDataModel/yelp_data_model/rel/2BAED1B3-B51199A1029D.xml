@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="yelp" id="2BAED1B3-5C7C-4BAD-DA82-B51199A1029D" mainViewID="5047B682-7D59-2690-C003-26C50649AA3C">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:42 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>3FD120B5-9F4E-6278-D5E2-746D192C8319</selectedRDBMSSite>
+<importDDLFileStamps>
+<importDDLFileStamp class="oracle.dbtools.crest.imports.DDLFileStamp">
+<fileName>yelp.ddl</fileName>
+<pathName>/Users/jacobbrouwer/Dropbox/Classes/DataViz/DataVizYelp/sql</pathName>
+<dbType>11</dbType>
+</importDDLFileStamp>
+</importDDLFileStamps>
+</relationalModel>

@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="2DB5A524-344E-361D-F53B-0FCFD0CA4909" name="vote_review_FK">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>240B4293-2558-0C0A-6DEF-81311BD6294B</importedID>
+<containerWithKeyObject>300B3231-6D1C-A0C2-ECA3-92A85C0C22FC</containerWithKeyObject>
+<deleteRule>NO ACTION</deleteRule>
+<localFKIndex>D7870531-C849-B98B-BD02-F5094EE04D9D</localFKIndex>
+<keyObject>E6797999-1B6D-8B51-CA9B-D604D5D12F13</keyObject>
+<mandatory>false</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

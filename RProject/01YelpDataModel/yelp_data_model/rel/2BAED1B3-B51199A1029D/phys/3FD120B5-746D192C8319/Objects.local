@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.storage.oracle.v12c.StorageDesignOraclev12c>
+   <object objectType="User" objectID="MDSYS" name="MDSYS" seqName="seg_0"/>
+   <object objectType="User" objectID="PUBLIC" name="PUBLIC" seqName="seg_0"/>
+   <object objectType="SType" objectID="47E390DE-0671-C4B1-8428-0F45CBEE18F8" name="SDO_GEOMETRY" seqName="seg_0"/>
+   <object objectType="SType" objectID="F72C39E0-D1CA-8821-2AD7-A1E95A37D3D1" name="XMLTYPE" seqName="seg_0"/>
+   <object objectType="Table" objectID="03595B13-46B6-DDF4-DB7C-A570ADB4EAF0" name="category" seqName="seg_0"/>
+   <object objectType="Table" objectID="083A9DBA-8F39-E259-8E90-69D4029D256B" name="Business_neighborhood" seqName="seg_0"/>
+   <object objectType="Table" objectID="2592A3FE-C5C8-B248-80D4-D213D04E23A0" name="review" seqName="seg_0"/>
+   <object objectType="Table" objectID="300B3231-6D1C-A0C2-ECA3-92A85C0C22FC" name="vote" seqName="seg_0"/>
+   <object objectType="Table" objectID="34F1B77E-525E-E581-D495-A28751037385" name="neighborhood" seqName="seg_0"/>
+   <object objectType="Table" objectID="4ED6DAC8-A328-22FB-176D-49EFDD61F7F8" name="checkin_info" seqName="seg_0"/>
+   <object objectType="Table" objectID="607024F2-6756-00F5-EB87-E015608F1AB9" name="Attribute_business" seqName="seg_0"/>
+   <object objectType="Table" objectID="66FDA65B-5DB2-FD70-C74D-58126576D934" name="attribute" seqName="seg_0"/>
+   <object objectType="Table" objectID="6885BFC1-119D-D6B6-8B20-BBB3D90E8539" name="checkin" seqName="seg_0"/>
+   <object objectType="Table" objectID="68B849F1-3F68-CCBD-1A7A-67961511862D" name="business" seqName="seg_0"/>
+   <object objectType="Table" objectID="821F8111-E30B-285A-AB37-AE22498BFAE4" name="hours" seqName="seg_0"/>
+   <object objectType="Table" objectID="83960095-624A-0A8E-E4BD-6C3999475A87" name="Yelper_friend" seqName="seg_0"/>
+   <object objectType="Table" objectID="86C97C8B-0C36-1BAB-438F-1FD678A40410" name="compliment" seqName="seg_0"/>
+   <object objectType="Table" objectID="96DF6F87-ED2A-FABD-D172-8EF5759AC370" name="Elite_year_yelper" seqName="seg_0"/>
+   <object objectType="Table" objectID="AF104DE1-D02F-3F72-7B0E-0212DE4951B6" name="Business_category" seqName="seg_0"/>
+   <object objectType="Table" objectID="BA81215F-7B5E-E878-03B1-519178F46C24" name="elite_year" seqName="seg_0"/>
+   <object objectType="Table" objectID="D3B1F7AE-6CA6-45F7-F0B5-EE40261637F3" name="yelper" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.storage.oracle.v12c.StorageDesignOraclev12c>

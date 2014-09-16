@@ -1,0 +1,78 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AF104DE1-D02F-3F72-7B0E-0212DE4951B6" name="Business_category">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>89FC9A13-2924-5025-7A55-C97A94D025EA</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="business_id" id="74C976E6-317D-2F1A-8C62-83D0618B3100">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>F2ECD175-190D-55AB-F89C-4748DA7EF7EF</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>DEFA863C-A883-B3BC-75E0-C017A16C5252</domain>
+<delegate>E075B397-A164-5965-B5F4-B9596ABC287D</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A51A5EB9-FBD6-AC6E-C267-D33120955AE5" referredColumn="E075B397-A164-5965-B5F4-B9596ABC287D"/>
+</associations>
+</Column>
+<Column name="category_id" id="50D2395A-0C1E-A4DF-920E-246766474F80">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>A47966E4-F091-816E-0D8E-D10CFFB49662</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>DEFA863C-A883-B3BC-75E0-C017A16C5252</domain>
+<delegate>43BEAFA9-3542-29B7-3747-A9AAE145B952</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BDEF626F-45DB-4C0E-CBED-DB1FF2CF9B72" referredColumn="43BEAFA9-3542-29B7-3747-A9AAE145B952"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1379E672-82CF-AA49-5027-AFAA95F870EC" name="Business_category__IDX">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>7E903C44-B0F8-BA7A-80FC-4E6599BF101B</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="74C976E6-317D-2F1A-8C62-83D0618B3100"/>
+<colUsage columnID="50D2395A-0C1E-A4DF-920E-246766474F80"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5C7C432D-614C-FBE4-6F1B-3CAE7BC630F4" name="FK_ASS_12">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="74C976E6-317D-2F1A-8C62-83D0618B3100"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="046B4D3D-1E70-5CF5-6580-679D8E337E08" name="FK_ASS_13">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="50D2395A-0C1E-A4DF-920E-246766474F80"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

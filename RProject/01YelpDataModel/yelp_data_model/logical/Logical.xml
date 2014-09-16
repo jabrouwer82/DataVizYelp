@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="2F805769-3BEC-890D-71E1-72B3BEDF4265" mainViewID="59A2A1A2-78A1-3F55-79B5-3EED927C9080">
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="8678EE8C-2753-3FC0-C43C-9F6E02509A80" mainViewID="EB6A3688-20DB-EA76-D4A1-E8756D3F8642">
 <createdBy>jacobbrouwer</createdBy>
-<createdTime>2014-09-09 21:55:17 UTC</createdTime>
+<createdTime>2014-09-16 01:01:17 UTC</createdTime>
 <ownerDesignName>yelp_data_model</ownerDesignName>
 <shouldBeOpen>false</shouldBeOpen>
 </LogicalDesign>

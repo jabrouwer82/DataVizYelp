@@ -1,0 +1,78 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="83960095-624A-0A8E-E4BD-6C3999475A87" name="Yelper_friend">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>615480A6-E16C-E066-0E24-0331555E69D1</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="yelper_id" id="57CDAFB2-88E6-F7B9-C67E-1CC3FADD9B92">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>D10A62F3-A853-717D-2C2E-61E42A029CBD</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>DEFA863C-A883-B3BC-75E0-C017A16C5252</domain>
+<delegate>66097499-B478-131A-375E-79F6EAE448E8</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9FD529B2-8766-4E05-AFA4-F310E7ABFE41" referredColumn="66097499-B478-131A-375E-79F6EAE448E8"/>
+</associations>
+</Column>
+<Column name="friend_id" id="AA20236E-F2F5-0A7B-3F9F-FDA0F8975F91">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>039AA78C-8824-354B-0B11-D3FB1A54E73F</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>DEFA863C-A883-B3BC-75E0-C017A16C5252</domain>
+<delegate>66097499-B478-131A-375E-79F6EAE448E8</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="275BDDFA-BD4A-E9BB-3495-2579A7DF65B2" referredColumn="66097499-B478-131A-375E-79F6EAE448E8"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="13D04B70-69AF-E530-449E-14BD10BBDAE5" name="Yelper_friend__IDX">
+<sourceDDLFile>yelp.ddl</sourceDDLFile>
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<importedID>17EC287C-2D61-A6B3-4B9C-6C3521E297D5</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="57CDAFB2-88E6-F7B9-C67E-1CC3FADD9B92"/>
+<colUsage columnID="AA20236E-F2F5-0A7B-3F9F-FDA0F8975F91"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="52958A88-5E3E-46BF-AEC9-ACECC1219B73" name="FK_ASS_19">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="57CDAFB2-88E6-F7B9-C67E-1CC3FADD9B92"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FA6A2C73-D4A8-653E-89FE-E1ECC23F5BBF" name="FK_ASS_20">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:02:55 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AA20236E-F2F5-0A7B-3F9F-FDA0F8975F91"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

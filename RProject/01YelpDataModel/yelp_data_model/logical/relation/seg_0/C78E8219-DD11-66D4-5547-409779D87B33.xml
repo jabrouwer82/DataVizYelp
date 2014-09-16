@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_ASS_12" directorySegmentName="seg_0" id="C78E8219-DD11-66D4-5547-409779D87B33">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:07:30 UTC</createdTime>
+<generatorID>A51A5EB9-FBD6-AC6E-C267-D33120955AE5</generatorID>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<engineerTo>
+<item key="38B64BFD-E9C9-3BAC-A5EF-ED76D142F76D" value="true"/>
+<item key="2BAED1B3-5C7C-4BAD-DA82-B51199A1029D" value="true"/>
+</engineerTo>
+<sourcePk>2BF6E2DC-CC17-CFBC-342A-E81104C6F990</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>CE59EEBF-5AA4-0ACF-C4FF-1D60F72D3253</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>A1243CA7-3AAA-B3C9-25BF-5A565003F650</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

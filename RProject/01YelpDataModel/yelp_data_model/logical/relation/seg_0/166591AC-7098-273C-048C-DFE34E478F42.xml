@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="hours_business_FK" directorySegmentName="seg_0" id="166591AC-7098-273C-048C-DFE34E478F42">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-16 01:07:30 UTC</createdTime>
+<generatorID>528761C4-7C89-7280-6808-EF1EC9D4C7F3</generatorID>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<engineerTo>
+<item key="38B64BFD-E9C9-3BAC-A5EF-ED76D142F76D" value="true"/>
+<item key="2BAED1B3-5C7C-4BAD-DA82-B51199A1029D" value="true"/>
+</engineerTo>
+<sourcePk>2BF6E2DC-CC17-CFBC-342A-E81104C6F990</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>CE59EEBF-5AA4-0ACF-C4FF-1D60F72D3253</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>51E1C949-1254-8AA0-236B-38705FA503FA</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

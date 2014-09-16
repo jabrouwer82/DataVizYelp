@@ -63,3 +63,10 @@ madison_map + geom_point(data=madison, aes(x=LONGITUDE, y=LATITUDE, color = STAR
 edinburgh_map + geom_point(data=edinburgh, aes(x=LONGITUDE, y=LATITUDE, color = STARS)) + ggtitle("Edinburgh") + scale_colour_gradientn(limits = c(1, 5), colours = rainbow(3), breaks=b, labels=format(b))# + theme(legend.position="none")
 las_vegas_map + geom_point(data=las_vegas, aes(x=LONGITUDE, y=LATITUDE, color = STARS)) + ggtitle("Las Vegas") + scale_colour_gradientn(limits = c(1, 5), colours = rainbow(3), breaks=b, labels=format(b))# + theme(legend.position="none")
 
+
+p1 <- ggplot(phoenix, aes(x = BUSINESS_REVIEW_COUNT, y = STARS)) + geom_point(colour="#56B4E9") + ggtitle("Phoenix")
+p2 <- ggplot(madison, aes(x = BUSINESS_REVIEW_COUNT, y = STARS)) + geom_point(colour="#56B4E9") + ggtitle("Madison")
+p3 <- ggplot(edinburgh, aes(x = BUSINESS_REVIEW_COUNT, y = STARS)) + geom_point(colour="#56B4E9") + ggtitle("Edinburgh")
+p4 <- ggplot(las_vegas, aes(x = BUSINESS_REVIEW_COUNT, y = STARS)) + geom_point(colour="#56B4E9") + ggtitle("Las Vegas")
+#multiplot(p1, p2, p3, p4, cols=2)
+

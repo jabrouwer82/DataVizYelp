@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="EB7B80B3-11DC-D845-1BE6-54867C3BFC86">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-09 21:55:18 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</BusinessInfoDesign>

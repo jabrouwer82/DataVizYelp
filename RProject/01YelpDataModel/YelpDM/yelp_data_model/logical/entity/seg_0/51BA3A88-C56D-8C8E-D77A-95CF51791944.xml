@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="51BA3A88-C56D-8C8E-D77A-95CF51791944" name="checkin">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-09 22:34:30 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<engineerTo>
+<item key="B0EEB2E1-D1A3-05DF-AE4A-573EFED15EC0" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="checkin_id" id="92AFAD33-481A-292C-EE74-7B1B393972CE">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-09 22:58:22 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<engineerTo>
+<item key="B0EEB2E1-D1A3-05DF-AE4A-573EFED15EC0" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Attribute>
+<Attribute name="business_id" id="F7E3A700-FE7B-BB24-5124-CD993A165B42">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-11 03:52:46 UTC</createdTime>
+<generatorID>D875B705-90D2-83FA-4B3D-C6B2BCC4C94C</generatorID>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<engineerTo>
+<item key="B0EEB2E1-D1A3-05DF-AE4A-573EFED15EC0" value="true"/>
+</engineerTo>
+<referedAttribute>689A9252-21A0-EBE6-3636-829B12FD8C69</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="294ECC72-DA62-D266-ABBF-BA1A30E2790A" name="checkin PK">
+<createdBy>jacobbrouwer</createdBy>
+<createdTime>2014-09-09 22:58:32 UTC</createdTime>
+<ownerDesignName>yelp_data_model</ownerDesignName>
+<engineerTo>
+<item key="B0EEB2E1-D1A3-05DF-AE4A-573EFED15EC0" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>92AFAD33-481A-292C-EE74-7B1B393972CE</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

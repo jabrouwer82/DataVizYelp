@@ -14,6 +14,7 @@ possibleError <- tryCatch(
 )
 if(!inherits(possibleError, "error")){
   users <- dbGetQuery(jdbcConnection, "select review_count, average_stars from yelper")
+  businesses <- dbGetQuery(jdbcConnection, "select city, stars, review_count as \"BUSINESS_REVIEW_COUNT\", longitude, latitude, business_open from business where (city='Edinburgh' or city='Las Vegas' or city='Phoenix' or city='Madison')")
   edinburgh <- dbGetQuery(jdbcConnection, "select stars, review_count as \"BUSINESS_REVIEW_COUNT\", longitude, latitude, business_open from business where city='Edinburgh'")
   las_vegas <- dbGetQuery(jdbcConnection, "select stars, review_count as \"BUSINESS_REVIEW_COUNT\", longitude, latitude, business_open from business where city='Las Vegas'")
   phoenix <- dbGetQuery(jdbcConnection, "select stars, review_count as \"BUSINESS_REVIEW_COUNT\", longitude, latitude, business_open from business where city='Phoenix'")
@@ -49,8 +50,7 @@ ggplot(data = users, aes(x = REVIEW_COUNT)) +
 
 ggplot(subset(users, AVERAGE_STARS != 0), aes(x = REVIEW_COUNT, y = AVERAGE_STARS)) +
   geom_point(colour="#56B4E9") +
-  geom_hline(aes(yintercept=mean(AVERAGE_STARS))) + 
-  coord_cartesian(xlim=c(0, 3000))
+  geom_hline(aes(yintercept=mean(AVERAGE_STARS)))
 
 phoenix_map <- ggmap(get_googlemap("Phoenix, AZ"))
 las_vegas_map <- ggmap(get_googlemap("Las Vegas, NV"))
@@ -63,10 +63,6 @@ madison_map + geom_point(data=madison, aes(x=LONGITUDE, y=LATITUDE, color = STAR
 edinburgh_map + geom_point(data=edinburgh, aes(x=LONGITUDE, y=LATITUDE, color = STARS)) + ggtitle("Edinburgh") + scale_colour_gradientn(limits = c(1, 5), colours = rainbow(3), breaks=b, labels=format(b))# + theme(legend.position="none")
 las_vegas_map + geom_point(data=las_vegas, aes(x=LONGITUDE, y=LATITUDE, color = STARS)) + ggtitle("Las Vegas") + scale_colour_gradientn(limits = c(1, 5), colours = rainbow(3), breaks=b, labels=format(b))# + theme(legend.position="none")
 
+ggplot(businesses, aes(x = BUSINESS_REVIEW_COUNT, y = STARS)) + geom_point(colour="#56B4E9") + facet_wrap(~CITY)
 
-p1 <- ggplot(phoenix, aes(x = BUSINESS_REVIEW_COUNT, y = STARS)) + geom_point(colour="#56B4E9") + ggtitle("Phoenix")
-p2 <- ggplot(madison, aes(x = BUSINESS_REVIEW_COUNT, y = STARS)) + geom_point(colour="#56B4E9") + ggtitle("Madison")
-p3 <- ggplot(edinburgh, aes(x = BUSINESS_REVIEW_COUNT, y = STARS)) + geom_point(colour="#56B4E9") + ggtitle("Edinburgh")
-p4 <- ggplot(las_vegas, aes(x = BUSINESS_REVIEW_COUNT, y = STARS)) + geom_point(colour="#56B4E9") + ggtitle("Las Vegas")
-#multiplot(p1, p2, p3, p4, cols=2)
 

@@ -10,11 +10,16 @@ shinyUI(pageWithSidebar(
 
   # Sidebar with a slider input for number of observations
   sidebarPanel(
-    sliderInput("obs", 
-                "Number of observations:", 
-                min = 2009,
-                max = 2013, 
-                value = 2009)
+    sliderInput("day", 
+                "Day of week (0 is Sunday):", 
+                min = 0,
+                max = 6, 
+                value = 0)
+    sliderInput("hour", 
+                "Hour of day:", 
+                min = 0,
+                max = 23, 
+                value = 0)
   ),
 
   # Show a plot of the generated distribution

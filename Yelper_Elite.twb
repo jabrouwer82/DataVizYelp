@@ -1,0 +1,445 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<workbook source-platform='mac' version='8.3' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <!-- build 8200.14.0819.2015                                -->
+  <preferences>
+  </preferences>
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='8.3'>
+      <aliases enabled='yes' />
+      <column caption='Elite Year Parameter' datatype='string' name='[Elite Year Parameter]' param-domain-type='list' role='measure' type='nominal' value='&quot;2014&quot;'>
+        <calculation class='tableau' formula='&quot;2014&quot;' />
+        <members>
+          <member value='&quot;2005&quot;' />
+          <member value='&quot;2006&quot;' />
+          <member value='&quot;2007&quot;' />
+          <member value='&quot;2008&quot;' />
+          <member value='&quot;2009&quot;' />
+          <member value='&quot;2010&quot;' />
+          <member value='&quot;2011&quot;' />
+          <member value='&quot;2012&quot;' />
+          <member value='&quot;2013&quot;' />
+          <member value='&quot;2014&quot;' />
+        </members>
+      </column>
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[Elite Year Parameter]' type='palette'>
+            <map to='#1f77b4'>
+              <bucket>&quot;2005&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;2007&quot;</bucket>
+            </map>
+            <map to='#8c564b'>
+              <bucket>&quot;2008&quot;</bucket>
+            </map>
+            <map to='#9467bd'>
+              <bucket>&quot;2014&quot;</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>&quot;2010&quot;</bucket>
+            </map>
+            <map to='#e377c2'>
+              <bucket>&quot;2013&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;2006&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+    </datasource>
+    <datasource caption='YELPER+ (C##CS347_JAB5948)' inline='true' name='oracle.41918.941549953700' version='8.3'>
+      <connection authentication='RDBMS' class='oracle' port='1521' schema='C##CS347_JAB5948' server='128.83.138.158' service='orcl' username='C##cs347_jab5948'>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[ELITE_YEAR_YELPER].[ELITE_YEAR_ID]'>
+              </expression>
+              <expression op='[ELITE_YEAR].[ELITE_YEAR_ID]'>
+              </expression>
+            </expression>
+          </clause>
+          <relation join='inner' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[YELPER].[YELPER_ID]'>
+                </expression>
+                <expression op='[ELITE_YEAR_YELPER].[YELPER_ID]'>
+                </expression>
+              </expression>
+            </clause>
+            <relation name='YELPER' table='[C##CS347_JAB5948].[YELPER]' type='table' />
+            <relation name='ELITE_YEAR_YELPER' table='[C##CS347_JAB5948].[ELITE_YEAR_YELPER]' type='table' />
+          </relation>
+          <relation name='ELITE_YEAR' table='[C##CS347_JAB5948].[ELITE_YEAR]' type='table' />
+        </relation>
+        <cols>
+          <map key='[AVERAGE_STARS]' value='[YELPER].[AVERAGE_STARS]' />
+          <map key='[ELITE_YEAR]' value='[ELITE_YEAR].[ELITE_YEAR]' />
+          <map key='[ELITE_YEAR_ID (ELITE_YEAR)]' value='[ELITE_YEAR].[ELITE_YEAR_ID]' />
+          <map key='[ELITE_YEAR_ID]' value='[ELITE_YEAR_YELPER].[ELITE_YEAR_ID]' />
+          <map key='[FANS]' value='[YELPER].[FANS]' />
+          <map key='[REVIEW_COUNT]' value='[YELPER].[REVIEW_COUNT]' />
+          <map key='[YELPER_ID (ELITE_YEAR_YELPER)]' value='[ELITE_YEAR_YELPER].[YELPER_ID]' />
+          <map key='[YELPER_ID]' value='[YELPER].[YELPER_ID]' />
+          <map key='[YELPER_ID_STR]' value='[YELPER].[YELPER_ID_STR]' />
+          <map key='[YELPER_NAME]' value='[YELPER].[YELPER_NAME]' />
+          <map key='[YELPING_SINCE]' value='[YELPER].[YELPING_SINCE]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>YELPER_ID</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[YELPER_ID]</local-name>
+            <parent-name>[YELPER]</parent-name>
+            <remote-alias>YELPER_ID</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_NUM&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>YELPER_ID_STR</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[YELPER_ID_STR]</local-name>
+            <parent-name>[YELPER]</parent-name>
+            <remote-alias>YELPER_ID_STR</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>0</scale>
+            <width>30</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation charset='1' flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_CHR{charset=178,charform=1}&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>YELPER_NAME</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[YELPER_NAME]</local-name>
+            <parent-name>[YELPER]</parent-name>
+            <remote-alias>YELPER_NAME</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>0</scale>
+            <width>4000</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation charset='1' flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_CHR{charset=178,charform=1}&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>REVIEW_COUNT</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[REVIEW_COUNT]</local-name>
+            <parent-name>[YELPER]</parent-name>
+            <remote-alias>REVIEW_COUNT</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_NUM&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AVERAGE_STARS</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[AVERAGE_STARS]</local-name>
+            <parent-name>[YELPER]</parent-name>
+            <remote-alias>AVERAGE_STARS</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>18</precision>
+            <scale>17</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_NUM&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>YELPING_SINCE</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[YELPING_SINCE]</local-name>
+            <parent-name>[YELPER]</parent-name>
+            <remote-alias>YELPING_SINCE</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <scale>0</scale>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_DAT&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>FANS</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[FANS]</local-name>
+            <parent-name>[YELPER]</parent-name>
+            <remote-alias>FANS</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_NUM&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ELITE_YEAR_ID</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[ELITE_YEAR_ID]</local-name>
+            <parent-name>[ELITE_YEAR_YELPER]</parent-name>
+            <remote-alias>ELITE_YEAR_ID</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_NUM&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>YELPER_ID</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[YELPER_ID (ELITE_YEAR_YELPER)]</local-name>
+            <parent-name>[ELITE_YEAR_YELPER]</parent-name>
+            <remote-alias>YELPER_ID</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_NUM&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ELITE_YEAR_ID</remote-name>
+            <remote-type>131</remote-type>
+            <local-name>[ELITE_YEAR_ID (ELITE_YEAR)]</local-name>
+            <parent-name>[ELITE_YEAR]</parent-name>
+            <remote-alias>ELITE_YEAR_ID</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_NUM&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ELITE_YEAR</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[ELITE_YEAR]</local-name>
+            <parent-name>[ELITE_YEAR]</parent-name>
+            <remote-alias>ELITE_YEAR</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>0</scale>
+            <width>4000</width>
+            <contains-null>true</contains-null>
+            <padded-semantics>true</padded-semantics>
+            <collation charset='1' flag='0' name='binary' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQLT_CHR{charset=178,charform=1}&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Average Stars' datatype='real' name='[AVERAGE_STARS]' role='measure' type='quantitative'>
+      </column>
+      <column caption='Elite' datatype='string' name='[Calculation_8991006224407329]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='If ([Parameters].[Elite Year Parameter] = [ELITE_YEAR]) Then&#10;    &quot;yes&quot;&#10;Else&#10;    &quot;no&quot;&#10;End' scope-isolation='false' />
+      </column>
+      <column caption='Elite Year' datatype='string' name='[ELITE_YEAR]' role='dimension' type='nominal'>
+      </column>
+      <column aggregation='Sum' caption='Elite Year Id (Elite Year)' datatype='real' name='[ELITE_YEAR_ID (ELITE_YEAR)]' role='dimension' type='quantitative'>
+      </column>
+      <column aggregation='Sum' caption='Elite Year Id' datatype='real' name='[ELITE_YEAR_ID]' role='dimension' type='quantitative'>
+      </column>
+      <column caption='Fans' datatype='real' name='[FANS]' role='measure' type='quantitative'>
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Review Count' datatype='real' name='[REVIEW_COUNT]' role='measure' type='quantitative'>
+      </column>
+      <column aggregation='Sum' caption='Yelper Id (Elite Year Yelper)' datatype='real' name='[YELPER_ID (ELITE_YEAR_YELPER)]' role='dimension' type='quantitative'>
+      </column>
+      <column caption='Yelper Id' datatype='real' name='[YELPER_ID]' role='dimension' type='ordinal'>
+      </column>
+      <column caption='Yelper Id Str' datatype='string' name='[YELPER_ID_STR]' role='dimension' type='nominal'>
+      </column>
+      <column caption='Yelper Name' datatype='string' name='[YELPER_NAME]' role='dimension' type='nominal'>
+      </column>
+      <column caption='Yelping Since' datatype='datetime' name='[YELPING_SINCE]' role='dimension' type='ordinal'>
+      </column>
+      <layout dim-ordering='alphabetic' dim-percentage='0.482505' measure-ordering='alphabetic' measure-percentage='0.322284' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Elite Year Parameter' datatype='string' name='[Elite Year Parameter]' param-domain-type='list' role='measure' type='nominal' value='&quot;2014&quot;'>
+          <calculation class='tableau' formula='&quot;2014&quot;' />
+          <members>
+            <member value='&quot;2005&quot;' />
+            <member value='&quot;2006&quot;' />
+            <member value='&quot;2007&quot;' />
+            <member value='&quot;2008&quot;' />
+            <member value='&quot;2009&quot;' />
+            <member value='&quot;2010&quot;' />
+            <member value='&quot;2011&quot;' />
+            <member value='&quot;2012&quot;' />
+            <member value='&quot;2013&quot;' />
+            <member value='&quot;2014&quot;' />
+          </members>
+        </column>
+      </datasource-dependencies>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='YELPER+ (C##CS347_JAB5948)' name='oracle.41918.941549953700' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Elite Year Parameter' datatype='string' name='[Elite Year Parameter]' param-domain-type='list' role='measure' type='nominal' value='&quot;2014&quot;'>
+              <calculation class='tableau' formula='&quot;2014&quot;' />
+              <members>
+                <member value='&quot;2005&quot;' />
+                <member value='&quot;2006&quot;' />
+                <member value='&quot;2007&quot;' />
+                <member value='&quot;2008&quot;' />
+                <member value='&quot;2009&quot;' />
+                <member value='&quot;2010&quot;' />
+                <member value='&quot;2011&quot;' />
+                <member value='&quot;2012&quot;' />
+                <member value='&quot;2013&quot;' />
+                <member value='&quot;2014&quot;' />
+              </members>
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='oracle.41918.941549953700'>
+            <column caption='Elite' datatype='string' name='[Calculation_8991006224407329]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='If ([Parameters].[Elite Year Parameter] = [ELITE_YEAR]) Then&#10;    &quot;yes&quot;&#10;Else&#10;    &quot;no&quot;&#10;End' scope-isolation='false' />
+            </column>
+            <column caption='Yelper Id' datatype='real' name='[YELPER_ID]' role='dimension' type='ordinal'>
+            </column>
+            <column-instance column='[YELPER_ID]' derivation='Count' name='[cnt:YELPER_ID:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_8991006224407329]' derivation='None' name='[none:Calculation_8991006224407329:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[Parameters].[Elite Year Parameter]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[oracle.41918.941549953700].[none:Calculation_8991006224407329:nk]</rows>
+        <cols>[oracle.41918.941549953700].[cnt:YELPER_ID:qk]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows>
+    <window class='schema' source-height='-1' />
+    <window auto-hidden='0' class='worksheet' maximized='1' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card pane-specification-id='0' param='[Parameters].[Elite Year Parameter]' type='color' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='31'>
+            <card type='columns' />
+          </strip>
+          <strip size='31'>
+            <card type='rows' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='compact' param='[Parameters].[Elite Year Parameter]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <highlight>
+        <color-one-way>
+          <field>[Parameters].[Elite Year Parameter]</field>
+          <field>[oracle.41918.941549953700].[none:Calculation_8991006224407329:nk]</field>
+          <field>[oracle.41918.941549953700].[none:ELITE_YEAR:nk]</field>
+          <field>[oracle.41918.941549953700].[none:ELITE_YEAR_ID:qk]</field>
+          <field>[oracle.41918.941549953700].[none:YELPER_ID (ELITE_YEAR_YELPER):qk]</field>
+          <field>[oracle.41918.941549953700].[none:YELPER_ID:ok]</field>
+        </color-one-way>
+      </highlight>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='102' name='Sheet 1' width='192'>
+      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
+      gTNscJgMrgAAAABJRU5ErkJggg==
+    </thumbnail>
+  </thumbnails>
+</workbook>

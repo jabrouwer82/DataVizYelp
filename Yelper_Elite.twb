@@ -322,130 +322,7 @@
     </datasource>
   </datasources>
   <worksheets>
-    <worksheet name='Number of Elite Users Per Year'>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='YELPER+ (C##CS347_JAB5948)' name='oracle.41918.941549953700' />
-          </datasources>
-          <datasource-dependencies datasource='oracle.41918.941549953700'>
-            <column caption='Elite Year' datatype='string' name='[ELITE_YEAR]' role='dimension' type='nominal'>
-            </column>
-            <column caption='Yelper Id' datatype='real' name='[YELPER_ID]' role='dimension' type='ordinal'>
-            </column>
-            <column-instance column='[YELPER_ID]' derivation='Count' name='[cnt:YELPER_ID:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[ELITE_YEAR]' derivation='None' name='[none:ELITE_YEAR:nk]' pivot='key' type='nominal' />
-            <column-instance column='[YELPER_ID]' derivation='Count' name='[pcto:cnt:YELPER_ID:qk]' pivot='key' type='quantitative'>
-              <table-calc ordering-type='Columns' type='PctTotal' />
-            </column-instance>
-          </datasource-dependencies>
-          <aggregation value='true' />
-        </view>
-        <style>
-        </style>
-        <panes>
-          <pane>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <encodings>
-              <text column='[oracle.41918.941549953700].[pcto:cnt:YELPER_ID:qk]' />
-            </encodings>
-            <customized-tooltip>
-              <formatted-text>
-                <run fontcolor='#787878'>Elite:&#9;</run>
-                <run bold='true'>&lt;[oracle.41918.941549953700].[none:Calculation_8991006224407329:nk]&gt;</run>
-                <run fontcolor='#787878'>&#10;Count of Yelper Id:&#9;</run>
-              </formatted-text>
-            </customized-tooltip>
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-show' value='true' />
-                <format attr='mark-labels-cull' value='true' />
-              </style-rule>
-            </style>
-          </pane>
-        </panes>
-        <rows>[oracle.41918.941549953700].[none:ELITE_YEAR:nk]</rows>
-        <cols>[oracle.41918.941549953700].[cnt:YELPER_ID:qk]</cols>
-      </table>
-    </worksheet>
-    <worksheet name='Sheet 2'>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='YELPER+ (C##CS347_JAB5948)' name='oracle.41918.941549953700' />
-            <datasource name='Parameters' />
-          </datasources>
-          <datasource-dependencies datasource='oracle.41918.941549953700'>
-            <column caption='Average Stars' datatype='real' name='[AVERAGE_STARS]' role='measure' type='quantitative'>
-            </column>
-            <column caption='Elite' datatype='string' name='[Calculation_8991006224407329]' role='dimension' type='nominal'>
-              <calculation class='tableau' formula='If ([Parameters].[Elite Year Parameter] = [ELITE_YEAR]) Then&#10;    &quot;yes&quot;&#10;Else&#10;    &quot;no&quot;&#10;End' scope-isolation='false' />
-            </column>
-            <column caption='Fans' datatype='real' name='[FANS]' role='measure' type='quantitative'>
-            </column>
-            <column caption='Review Count' datatype='real' name='[REVIEW_COUNT]' role='measure' type='quantitative'>
-            </column>
-            <column-instance column='[AVERAGE_STARS]' derivation='None' name='[none:AVERAGE_STARS:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Calculation_8991006224407329]' derivation='None' name='[none:Calculation_8991006224407329:nk]' pivot='key' type='nominal' />
-            <column-instance column='[FANS]' derivation='None' name='[none:FANS:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[REVIEW_COUNT]' derivation='None' name='[none:REVIEW_COUNT:qk]' pivot='key' type='quantitative' />
-          </datasource-dependencies>
-          <aggregation value='true' />
-        </view>
-        <style>
-        </style>
-        <panes>
-          <pane>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Circle' />
-            <encodings>
-              <color column='[oracle.41918.941549953700].[none:Calculation_8991006224407329:nk]' />
-            </encodings>
-            <style>
-              <style-rule element='mark'>
-                <format attr='size' value='0.25' />
-              </style-rule>
-            </style>
-          </pane>
-          <pane id='1' x-axis-name='[oracle.41918.941549953700].[none:FANS:qk]'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Circle' />
-            <encodings>
-              <color column='[oracle.41918.941549953700].[none:Calculation_8991006224407329:nk]' />
-            </encodings>
-            <style>
-              <style-rule element='mark'>
-                <format attr='size' value='0.25' />
-              </style-rule>
-            </style>
-          </pane>
-          <pane id='2' x-axis-name='[oracle.41918.941549953700].[none:REVIEW_COUNT:qk]'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Circle' />
-            <encodings>
-              <color column='[oracle.41918.941549953700].[none:Calculation_8991006224407329:nk]' />
-            </encodings>
-            <style>
-              <style-rule element='mark'>
-                <format attr='size' value='0.25' />
-              </style-rule>
-            </style>
-          </pane>
-        </panes>
-        <rows>([oracle.41918.941549953700].[none:Calculation_8991006224407329:nk] * [oracle.41918.941549953700].[none:AVERAGE_STARS:qk])</rows>
-        <cols>([oracle.41918.941549953700].[none:FANS:qk] + [oracle.41918.941549953700].[none:REVIEW_COUNT:qk])</cols>
-      </table>
-    </worksheet>
-    <worksheet name='Sheet 3'>
+    <worksheet name='Elite Stats 2'>
       <table>
         <view>
           <datasources>
@@ -533,7 +410,7 @@
         <cols>[oracle.41918.941549953700].[none:Calculation_8991006224407329:nk]</cols>
       </table>
     </worksheet>
-    <worksheet name='Sheet 4'>
+    <worksheet name='Elite Users Stats'>
       <table>
         <view>
           <datasources>
@@ -541,13 +418,19 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='oracle.41918.941549953700'>
+            <column caption='Average Stars' datatype='real' name='[AVERAGE_STARS]' role='measure' type='quantitative'>
+            </column>
             <column caption='Elite' datatype='string' name='[Calculation_8991006224407329]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='If ([Parameters].[Elite Year Parameter] = [ELITE_YEAR]) Then&#10;    &quot;yes&quot;&#10;Else&#10;    &quot;no&quot;&#10;End' scope-isolation='false' />
             </column>
-            <column aggregation='Sum' caption='Yelper Id (Elite Year Yelper)' datatype='real' name='[YELPER_ID (ELITE_YEAR_YELPER)]' role='dimension' type='quantitative'>
+            <column caption='Fans' datatype='real' name='[FANS]' role='measure' type='quantitative'>
             </column>
+            <column caption='Review Count' datatype='real' name='[REVIEW_COUNT]' role='measure' type='quantitative'>
+            </column>
+            <column-instance column='[AVERAGE_STARS]' derivation='None' name='[none:AVERAGE_STARS:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_8991006224407329]' derivation='None' name='[none:Calculation_8991006224407329:nk]' pivot='key' type='nominal' />
-            <column-instance column='[YELPER_ID (ELITE_YEAR_YELPER)]' derivation='None' name='[none:YELPER_ID (ELITE_YEAR_YELPER):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[FANS]' derivation='None' name='[none:FANS:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[REVIEW_COUNT]' derivation='None' name='[none:REVIEW_COUNT:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
           <aggregation value='true' />
         </view>
@@ -558,11 +441,105 @@
             <view>
               <breakdown value='auto' />
             </view>
-            <mark class='Automatic' />
+            <mark class='Circle' />
+            <encodings>
+              <color column='[oracle.41918.941549953700].[none:Calculation_8991006224407329:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.25' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='1' x-axis-name='[oracle.41918.941549953700].[none:FANS:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <color column='[oracle.41918.941549953700].[none:Calculation_8991006224407329:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.25' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' x-axis-name='[oracle.41918.941549953700].[none:REVIEW_COUNT:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <color column='[oracle.41918.941549953700].[none:Calculation_8991006224407329:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.25' />
+              </style-rule>
+            </style>
           </pane>
         </panes>
-        <rows>[oracle.41918.941549953700].[none:YELPER_ID (ELITE_YEAR_YELPER):qk]</rows>
-        <cols>[oracle.41918.941549953700].[none:Calculation_8991006224407329:nk]</cols>
+        <rows>([oracle.41918.941549953700].[none:Calculation_8991006224407329:nk] * [oracle.41918.941549953700].[none:AVERAGE_STARS:qk])</rows>
+        <cols>([oracle.41918.941549953700].[none:FANS:qk] + [oracle.41918.941549953700].[none:REVIEW_COUNT:qk])</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Number of Elite Users Per Year'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='YELPER+ (C##CS347_JAB5948)' name='oracle.41918.941549953700' />
+          </datasources>
+          <datasource-dependencies datasource='oracle.41918.941549953700'>
+            <column caption='Elite Year' datatype='string' name='[ELITE_YEAR]' role='dimension' type='nominal'>
+            </column>
+            <column caption='Yelper Id' datatype='real' name='[YELPER_ID]' role='dimension' type='ordinal'>
+            </column>
+            <column-instance column='[YELPER_ID]' derivation='Count' name='[cnt:YELPER_ID:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[ELITE_YEAR]' derivation='None' name='[none:ELITE_YEAR:nk]' pivot='key' type='nominal' />
+            <column-instance column='[YELPER_ID]' derivation='Count' name='[pcto:cnt:YELPER_ID:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Columns' type='PctTotal' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='categorical' column='[oracle.41918.941549953700].[none:ELITE_YEAR:nk]'>
+            <groupfilter function='except' user:ui-domain='relevant' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:ELITE_YEAR:nk]' />
+              <groupfilter function='member' level='[none:ELITE_YEAR:nk]' member='%null%' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[oracle.41918.941549953700].[none:ELITE_YEAR:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[oracle.41918.941549953700].[pcto:cnt:YELPER_ID:qk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#787878'>Elite:&#9;</run>
+                <run bold='true'>&lt;[oracle.41918.941549953700].[none:Calculation_8991006224407329:nk]&gt;</run>
+                <run fontcolor='#787878'>&#10;Count of Yelper Id:&#9;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[oracle.41918.941549953700].[none:ELITE_YEAR:nk]</rows>
+        <cols>[oracle.41918.941549953700].[cnt:YELPER_ID:qk]</cols>
       </table>
     </worksheet>
   </worksheets>
@@ -597,7 +574,7 @@
         </color-one-way>
       </highlight>
     </window>
-    <window auto-hidden='0' class='worksheet' maximized='1' name='Sheet 2'>
+    <window auto-hidden='0' class='worksheet' maximized='0' name='Elite Users Stats'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -636,7 +613,7 @@
         </color-one-way>
       </highlight>
     </window>
-    <window auto-hidden='0' class='worksheet' maximized='0' name='Sheet 3'>
+    <window auto-hidden='0' class='worksheet' maximized='1' name='Elite Stats 2'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -670,33 +647,6 @@
           <field>[oracle.41918.941549953700].[none:ELITE_YEAR_ID:qk]</field>
           <field>[oracle.41918.941549953700].[none:FANS:qk]</field>
           <field>[oracle.41918.941549953700].[none:REVIEW_COUNT:qk]</field>
-          <field>[oracle.41918.941549953700].[none:YELPER_ID (ELITE_YEAR_YELPER):qk]</field>
-          <field>[oracle.41918.941549953700].[none:YELPER_ID:ok]</field>
-        </color-one-way>
-      </highlight>
-    </window>
-    <window auto-hidden='0' class='worksheet' maximized='0' name='Sheet 4'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='31'>
-            <card type='columns' />
-          </strip>
-          <strip size='31'>
-            <card type='rows' />
-          </strip>
-        </edge>
-      </cards>
-      <highlight>
-        <color-one-way>
-          <field>[oracle.41918.941549953700].[none:Calculation_8991006224407329:nk]</field>
-          <field>[oracle.41918.941549953700].[none:ELITE_YEAR:nk]</field>
           <field>[oracle.41918.941549953700].[none:YELPER_ID (ELITE_YEAR_YELPER):qk]</field>
           <field>[oracle.41918.941549953700].[none:YELPER_ID:ok]</field>
         </color-one-way>
@@ -868,7 +818,7 @@
       5nYXKckp2MyXdwwjLoSdS1MJqBpGURkaMkQAhJAmxgBCSBMBEEKaCIAQ0kQAhJAmAiCENBEA
       IaSJAAghTQRACGkiAEJIEwEQQtr/A4KCFhkZ+8ZKAAAAAElFTkSuQmCC
     </thumbnail>
-    <thumbnail height='192' name='Sheet 2' width='192'>
+    <thumbnail height='192' name='Elite Users Stats' width='192'>
       iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAAsTAAALEwEAmpwY
       AAAgAElEQVR4nO29d5Bcx5ng+XuufFdVew90NxqmYQiABA1IikYUKVKGIzfi7Eia2DhN3N7O
       Tuy5uNjd2N1ZzcVezG3MzWjjbm9i7m5O2pvRakYjiSNHUbSiSIIGBOE9GmgA7b0pX8/k/ZHt
@@ -1128,7 +1078,7 @@
       88IZpkyV+ppafB6dyfFBUo6fju1bi13Ngil1G8DOxBmLOfiNLCMTSYZHxjhwz27+f6vSLIoC
       +4mFAAAAAElFTkSuQmCC
     </thumbnail>
-    <thumbnail height='192' name='Sheet 3' width='173'>
+    <thumbnail height='192' name='Elite Stats 2' width='173'>
       iVBORw0KGgoAAAANSUhEUgAAAK0AAADACAYAAAB2xePHAAAACXBIWXMAAA7DAAAOwwHHb6hk
       AAAWrElEQVR4nO2de3RU1b3HP5OZSSaZQAh5kYRAJCGEJFCILUIFigsFsYjUUu7F2/bi9a6q
       13L7sj5wwa1YlKrLi9XeelcXj3Lbcn0rrbysirVAMQXUAA6QByGBPCAJQ14zycyc+8dJCJBz
@@ -1238,57 +1188,6 @@
       FZgOIVqB6RCiFZgOIVqB6RCiFZgOIVqB6RCiFZgOIVqB6dC4CGrw4vVs4+EV62mx2YgvXcxz
       jywiJdpGCSKG+XbaQA3Pr1hP7n1r2LThGabsf5nHNnuibZUggphOtB2eXZRzI3fPzsPlHs3S
       5XNpfmMf3mgbJogYphOt7NAkk9j3ON7ZPyy4Jvg/cG2OdYtKxhEAAAAASUVORK5CYII=
-    </thumbnail>
-    <thumbnail height='192' name='Sheet 4' width='175'>
-      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
-      s/4L3lCwTw4MdcEAAAAASUVORK5CYII=
     </thumbnail>
   </thumbnails>
 </workbook>

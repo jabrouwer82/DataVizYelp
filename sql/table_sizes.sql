@@ -1,0 +1,17 @@
+select count(*) as "attribute" from attribute;
+select count(*) as "attribute_business" from attribute_business;
+select count(*) as "business" from business;
+select count(*) as "business_category" from business_category;
+select count(*) as "business_neighborhood" from business_neighborhood;
+select count(*) as "category" from category;
+select count(*) as "checkin" from checkin;
+select count(*) as "checkin_info" from checkin_info;
+select count(*) as "compliment" from compliment;
+select count(*) as "elite_year" from elite_year;
+select count(*) as "elite_year_user" from elite_year_yelper;
+select count(*) as "hours" from hours;
+select count(*) as "neighborhood" from neighborhood;
+select count(*) as "review" from review;
+select count(*) as "vote" from vote;
+select count(*) as "user" from yelper;
+select count(*) as "user_friend" from yelper_friend;

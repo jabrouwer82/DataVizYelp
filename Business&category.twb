@@ -4284,7 +4284,7 @@
       <zones>
         <zone h='60250' id='1' name='Athletics By Type' show-title='true' w='69500' x='500' y='1125'>
         </zone>
-        <zone h='14250' id='6' name='Athletics By Type' param='[oracle.41914.754624965300].[none:STATE:nk]' type='filter' w='6100' x='5100' y='7375'>
+        <zone h='14250' id='6' name='Athletics By Type' param='[oracle.41914.754624965300].[none:STATE:nk]' type='filter' values='relevant' w='6100' x='5100' y='7375'>
         </zone>
       </zones>
     </dashboard>
@@ -4422,7 +4422,7 @@
         </color-one-way>
       </highlight>
     </window>
-    <window auto-hidden='0' class='worksheet' maximized='0' name='Foods By Type'>
+    <window auto-hidden='0' class='worksheet' maximized='1' name='Foods By Type'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -4454,7 +4454,7 @@
         </color-one-way>
       </highlight>
     </window>
-    <window auto-hidden='0' class='worksheet' maximized='1' name='Sheet 6'>
+    <window auto-hidden='0' class='worksheet' maximized='0' name='Sheet 6'>
       <cards>
         <edge name='left'>
           <strip size='160'>

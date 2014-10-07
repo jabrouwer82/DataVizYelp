@@ -1947,6 +1947,8 @@
           <field>[oracle.41914.707405555600].[none:CITY:nk]</field>
         </color-one-way>
       </highlight>
+      <viewpoint>
+      </viewpoint>
     </window>
     <window auto-hidden='0' class='worksheet' maximized='0' name='Sheet 3'>
       <cards>
@@ -1972,6 +1974,8 @@
           <field>[oracle.41914.707405555600].[none:BUSINESS_NAME:nk]</field>
         </color-one-way>
       </highlight>
+      <viewpoint>
+      </viewpoint>
     </window>
     <window auto-hidden='0' class='dashboard' maximized='1' name='Dashboard 1'>
       <zones>
@@ -2043,6 +2047,8 @@
           <field>[oracle.41914.707405555600].[none:CHECKIN_ID:ok]</field>
         </color-one-way>
       </highlight>
+      <viewpoint>
+      </viewpoint>
     </window>
     <window auto-hidden='0' class='worksheet' maximized='0' name='Crosstab and Heirarchies'>
       <cards>
@@ -2077,6 +2083,8 @@
           <field>[oracle.41918.842183125000].[none:STATE:nk]</field>
         </color-one-way>
       </highlight>
+      <viewpoint>
+      </viewpoint>
     </window>
     <window auto-hidden='0' class='worksheet' maximized='0' name='Sheet 6'>
       <cards>
@@ -2116,6 +2124,8 @@
           <field>[oracle.41918.885422395800].[yr:YELPING_SINCE:ok]</field>
         </color-one-way>
       </highlight>
+      <viewpoint>
+      </viewpoint>
     </window>
     <window auto-hidden='0' class='worksheet' maximized='0' name='Sheet 7'>
       <cards>
@@ -2146,6 +2156,8 @@
           <field>[oracle.41918.842183125000].[none:STATE:nk]</field>
         </color-one-way>
       </highlight>
+      <viewpoint>
+      </viewpoint>
     </window>
   </windows>
   <thumbnails>

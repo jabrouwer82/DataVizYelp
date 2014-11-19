@@ -22,11 +22,8 @@ for opt, arg in opts[0]:
 #trigrams_cond_freq = nltk.ConditionalFreqDist()
 #trigrams_freq = nltk.FreqDist()
 #stars_freq = nltk.FreqDist()
-feature_set_5 = set()
-feature_set_4 = set()
-feature_set_3 = set()
-feature_set_2 = set()
-feature_set_1 = set()
+feature_set = []
+# Contents of the feature_set should be in the form ({feature_name: feature_val}, label)
 
 print 'Parsing reviews json into frequency distributions.'
 raw_reviews = open(os.path.join(input_dir, "yelp_academic_dataset_review.json"))
@@ -35,36 +32,20 @@ for raw_review in raw_reviews:
   review_json = json.loads(raw_review)
   stars = review_json['stars']
   text = review_json['text'].lower()
-  feature_set = set()
-
-  if (stars == 1) {
-    feature_set = feature_set_1
-  } elif (stars == 2) {
-    feature_set = feature_set_2
-  } elif (stars == 3) {
-    feature_set = feature_set_3
-  } elif (stars == 4) {
-    feature_set = feature_set_4
-  } elif (stars == 5) {
-    feature_set = feature_set_5
-  } else {
-    print 'Something went wrong'
-    break
-  }
 
 #  stars_freq[stars] += 1
 
   tokens = nltk.tokenize.word_tokenize(text)
-
+  features = {}
   for token in tokens:
-    feature_set.add({'unigram': token}
+    features['unigram'] = token
 #    unigrams_cond_freq[stars][token] += 1
 #    unigrams_freq[token] += 1
 
   tokens_bigrams = nltk.bigrams(tokens)
 
   for token in tokens_bigrams:
-    feature_set.add({'bigram': token})
+    features['bigram'] = token
 #    bigrams_cond_freq[stars][token] += 1
 #    bigrams_freq[token] += 1
 
@@ -73,6 +54,7 @@ for raw_review in raw_reviews:
 #  for token in tokens_trigrams:
 #    trigrams_cond_freq[stars][token] += 1
 #    bigrams_freq[token] += 1
+  feature_set.append((features, stars))
 
 print 'Done parsing reviews json.'
 print 'Converting frequency distributions into probability distributions.'
@@ -87,12 +69,4 @@ print 'Converting frequency distributions into probability distributions.'
 
 #stars_prob = nltk.MLEProbDist(stars_freq)
 
-unigram_nb = nltk.NaiveBayesClassifier.train([(feature_set_1, 1), (feature_set_2, 2), (feature_set_3, 3), (feature_set_4, 4), (feature_set_5, 5)]
-
-
-
-
-
-
-
-
+unigram_nb = nltk.NaiveBayesClassifier.train(feature_set)

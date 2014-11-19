@@ -22,11 +22,11 @@ for opt, arg in opts[0]:
 #trigrams_cond_freq = nltk.ConditionalFreqDist()
 #trigrams_freq = nltk.FreqDist()
 #stars_freq = nltk.FreqDist()
-5_feature_set = set()
-4_feature_set = set()
-3_feature_set = set()
-2_feature_set = set()
-1_feature_set = set()
+feature_set_5 = set()
+feature_set_4 = set()
+feature_set_3 = set()
+feature_set_2 = set()
+feature_set_1 = set()
 
 print 'Parsing reviews json into frequency distributions.'
 raw_reviews = open(os.path.join(input_dir, "yelp_academic_dataset_review.json"))
@@ -38,15 +38,15 @@ for raw_review in raw_reviews:
   feature_set = set()
 
   if (stars == 1) {
-    feature_set = 1_feature_set
+    feature_set = feature_set_1
   } elif (stars == 2) {
-    feature_set = 2_feature_set
+    feature_set = feature_set_2
   } elif (stars == 3) {
-    feature_set = 3_feature_set
+    feature_set = feature_set_3
   } elif (stars == 4) {
-    feature_set = 4_feature_set
+    feature_set = feature_set_4
   } elif (stars == 5) {
-    feature_set = 5_feature_set
+    feature_set = feature_set_5
   } else {
     print 'Something went wrong'
     break
@@ -87,7 +87,7 @@ print 'Converting frequency distributions into probability distributions.'
 
 #stars_prob = nltk.MLEProbDist(stars_freq)
 
-unigram_nb = nltk.NaiveBayesClassifier.train([(1_feature_set, 1), (2_feature_set, 2), (3_feature_set, 3), (4_feature_set, 4), (5_feature_set, 5)]
+unigram_nb = nltk.NaiveBayesClassifier.train([(feature_set_1, 1), (feature_set_2, 2), (feature_set_3, 3), (feature_set_4, 4), (feature_set_5, 5)]
 
 
 

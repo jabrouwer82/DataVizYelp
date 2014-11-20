@@ -82,13 +82,13 @@ print 'Completed in: ',  end - start
 print 'Beginning analysis.'
 
 # Count of stars in the test data
-counts = {5: 0, 4: 0, 3: 0, 2: 0, 1: 0}
+counts = {5: 0.0, 4: 0.0, 3: 0.0, 2: 0.0, 1: 0.0}
 # True positives, tp[x] = count of times real_stars == x == expected_stars
-tp = {5: 0, 4: 0, 3: 0, 2: 0, 1: 0}
+tp = {5: 0.0, 4: 0.0, 3: 0.0, 2: 0.0, 1: 0.0}
 # False positives, fp[x] = count of times real_stars != x == expected_stars
-fp = {5: 0, 4: 0, 3: 0, 2: 0, 1: 0}
+fp = {5: 0.0, 4: 0.0, 3: 0.0, 2: 0.0, 1: 0.0}
 # False negatives, fn[x] = count of times real_stars == x != expected_stars
-fn = {5: 0, 4: 0, 3: 0, 2: 0, 1: 0}
+fn = {5: 0.0, 4: 0.0, 3: 0.0, 2: 0.0, 1: 0.0}
 
 for test_stars, test_text in test_set:
   test_feature_set = build_feature_set(test_text)

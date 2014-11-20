@@ -13,7 +13,7 @@ num_training = 0
 for opt, arg in opts[0]:
   if opt in ('-i', '--input_dir'):
     input_dir = arg
-  elif opt in ('d', '--dev'):
+  elif opt in ('-d', '--dev'):
     num_training = int(arg)
 
 

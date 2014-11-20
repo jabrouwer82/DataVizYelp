@@ -53,7 +53,7 @@ raw_reviews = open(os.path.join(input_dir, "yelp_academic_dataset_review.json"))
 for raw_review in raw_reviews:
 
   if count % update_freq == 0:
-    print 'Parsing review number: ' + count
+    print 'Parsing review number: ',  count
 
   review_json = json.loads(raw_review)
   stars = review_json['stars']
@@ -67,14 +67,14 @@ for raw_review in raw_reviews:
 
 end = datetime.now()
 print 'Done parsing reviews json.'
-print 'Completed in: ' + end - start
+print 'Completed in: ',  end - start
 print 'Training naive bayes classifier on features.'
 
 start = datetime.now()
 unigram_nb = nltk.NaiveBayesClassifier.train(feature_set)
 end = datetime.now()
 print 'Finished training naive bayes classifier.'
-print 'Completed in: ' + end - start
+print 'Completed in: ',  end - start
 
 
 print 'Beginning analysis.'
@@ -100,13 +100,13 @@ for test_stars, test_text in test_set:
 print 'Finished analysis, printing results:'
 
 for stars in xrange(1, 6):
-  print 'Tested classifier on ' + counts[stars] + ' ' + stars + ' reviews'
+  print 'Tested classifier on ',  counts[stars] , ' ',  stars , ' reviews'
   precision = tp[stars] / (tp[stars] + fp[stars])
   recall = tp[stars] / (tp[stars] + fn[stars])
-  print 'with precision: ' + precision
-  print 'and recall:     ' + recall
+  print 'with precision: ',  precision
+  print 'and recall:     ',  recall
   f1 = 2 * precision * recall / (precision + recall)
-  print 'and f1:         ' + f1
+  print 'and f1:         ',  f1
 
 
 

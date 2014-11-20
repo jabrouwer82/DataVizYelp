@@ -12,8 +12,6 @@ output_dir = '../bin/'
 for opt, arg in opts[0]:
   if opt in ('-i', '--input_dir'):
     input_dir = arg
-  if opt in ('-o', '--output_dir'):
-    output_dir = arg
 
 def build_feature_set(text):
   tokens = nltk.tokenize.word_tokenize(text)
@@ -37,6 +35,10 @@ def build_feature_set(text):
 #    bigrams_freq[token] += 1
   return features
 
+num_to_train = 30
+num_to_test = 30
+test_set = []
+
 num_reviews = 1125458
 update_freq = num_reviews / 30
 count = 0
@@ -56,18 +58,55 @@ for raw_review in raw_reviews:
   review_json = json.loads(raw_review)
   stars = review_json['stars']
   text = review_json['text'].lower()
-
-  features = build_feature_set(text)
-  feature_set.append((features, stars))
+  
+  if count < num_to_train:
+    features = build_feature_set(text)
+    feature_set.append((features, stars))
+  elif count < num_to_train + num_to_test:
+    test_set.add((star, text))
 
 end = datetime.now()
 print 'Done parsing reviews json.'
-print 'Completed in: ' end - start
+print 'Completed in: ' + end - start
 print 'Training naive bayes classifier on features.'
 
 start = datetime.now()
 unigram_nb = nltk.NaiveBayesClassifier.train(feature_set)
 end = datetime.now()
 print 'Finished training naive bayes classifier.'
-print 'Completed in: ' end - start
+print 'Completed in: ' + end - start
+
+
+print 'Beginning analysis.'
+
+# Count of stars in the test data
+counts = {5: 0, 4: 0, 3: 0, 2: 0, 1: 0}
+# True positives, tp[x] = count of times real_stars == x == expected_stars
+tp = {5: 0, 4: 0, 3: 0, 2: 0, 1: 0}
+# False positives, fp[x] = count of times real_stars != x == expected_stars
+fp = {5: 0, 4: 0, 3: 0, 2: 0, 1: 0}
+# False negatives, fn[x] = count of times real_stars == x != expected_stars
+fn = {5: 0, 4: 0, 3: 0, 2: 0, 1: 0}
+
+for test_stars, test_text in test_set:
+  predicted_stars = unigram_nb.classify(test_text)
+  counts[test_stars] += 1
+  if test_stars == predicted_stars:
+    tp[test_stars] += 1
+  else:
+    fn[test_stars] += 1
+    fp[predicted_stars] += 1
+
+print 'Finished analysis, printing results:'
+
+for stars in xrange(1, 6):
+  print 'Tested classifier on ' + counts[stars] + ' ' + stars + ' reviews'
+  precision = tp[stars] / (tp[stars] + fp[stars])
+  recall = tp[stars] / (tp[stars] + fn[stars])
+  print 'with precision: ' + precision
+  print 'and recall:     ' + recall
+  f1 = 2 * precision * recall / (precision + recall)
+  print 'and f1:         ' + f1
+
+
 

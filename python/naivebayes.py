@@ -10,13 +10,11 @@ import sys
 from datetime import datetime
 from nltk.corpus import stopwords
 
-opts = getopt.getopt(sys.argv[1:], 'i:d:n:s:p:m:', ['input_dir=', 'dev=', 'ngrams=', 'stopwords=', 'popularity=', 'pop_min='])
+opts = getopt.getopt(sys.argv[1:], 'i:d:n:s:', ['input_dir=', 'dev=', 'ngrams=', 'stopwords='])
 input_dir = './'
 num_training = 0
 ngrams = '1'
 stopword = 'none'
-popularity = 3000
-pop_min = 50
 for opt, arg in opts[0]:
   if opt in ('-i', '--input_dir'):
     input_dir = arg
@@ -26,14 +24,13 @@ for opt, arg in opts[0]:
     ngrams = arg
   elif opt in ('-s', '--stopwords'):
     stopword = arg
-  elif opt in ('-p', '--popularity'):
-    popularity = int(arg)
-  elif opt in ('-m', '--pop_min'):
-    pop_min = int(arg)
 
 
-word_counts = {}
 words_removed = 0
+stopwords_list = []
+
+if stopword != 'none':
+  stopwords_list = stopwords.words('english')
 
 def build_feature_set(text):
   tokens = nltk.tokenize.word_tokenize(text.lower())
@@ -42,9 +39,7 @@ def build_feature_set(text):
 # unigrams
   if '1' in ngrams:
     for token in tokens:
-      if stopword in 'popularity':
-        word_counts[token] = word_counts.get(token, 0) + 1
-      if not stopword == 'stopwords' or not token in stopwords.words('english'):
+      if not token in stopwords.words('english'):
         features[token] = features.get(token, 0) + 1
       else:
         words_removed += 1
@@ -102,27 +97,6 @@ for raw_review in raw_reviews:
       feature_set.append((features, stars))
     else:
       test_set.append((stars, text))
-
-def get_stopwords():
-  words = []
-  pop_stopwords = sorted(word_counts.items(), key=operator.itemgetter(1), reverse=True)[:popularity]
-  for word, freq in pop_stopwords:
-    if freq > 50:
-      words.append(word)
-  return words
-
-if stopword in 'popularity':
-  print 'Applying popularity stoplist.'
-  pop_stopwords = get_stopwords()
-  print pop_stopwords
-  for feature_label in feature_set:
-    features = feature_label[0]
-    for feature_name, feature_val in features.items():
-      if feature_name in pop_stopwords:
-        features.pop(feature_name)
-        words_removed += 1
-    if len(features) == 0:
-      feature_set.remove(feature_label)
 
 end = datetime.now()
 print 'Done parsing reviews json.'

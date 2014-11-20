@@ -36,7 +36,7 @@ for raw_review in raw_reviews:
 #  stars_freq[stars] += 1
 
   tokens = nltk.tokenize.word_tokenize(text)
-  features = defaultdict()
+  features = {}
   for token in tokens:
     features[token] = features.get(token, 0) + 1
 #    unigrams_cond_freq[stars][token] += 1

@@ -91,7 +91,8 @@ fp = {5: 0, 4: 0, 3: 0, 2: 0, 1: 0}
 fn = {5: 0, 4: 0, 3: 0, 2: 0, 1: 0}
 
 for test_stars, test_text in test_set:
-  predicted_stars = unigram_nb.classify(test_text)
+  test_feature_set = get_feature_set(test_text)
+  predicted_stars = unigram_nb.classify(test_feature_set)
   counts[test_stars] += 1
   if test_stars == predicted_stars:
     tp[test_stars] += 1

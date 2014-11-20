@@ -36,6 +36,9 @@ def build_feature_set(text):
 #    bigrams_freq[token] += 1
   return features
 
+num_reviews = 1125458
+update_freq = num_reviews / 30
+count = 0
 
 feature_set = []
 # Contents of the feature_set should be in the form ({feature_name: feature_val}, label)
@@ -44,6 +47,10 @@ print 'Parsing reviews json into frequency distributions.'
 raw_reviews = open(os.path.join(input_dir, "yelp_academic_dataset_review.json"))
 # Parses a review object
 for raw_review in raw_reviews:
+
+  if count % update_freq == 0:
+    print 'Parsing review number: ' + count
+
   review_json = json.loads(raw_review)
   stars = review_json['stars']
   text = review_json['text'].lower()

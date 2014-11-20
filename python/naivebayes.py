@@ -13,8 +13,8 @@ num_training = 0
 for opt, arg in opts[0]:
   if opt in ('-i', '--input_dir'):
     input_dir = arg
-  if opt in ('d', '--dev'):
-    num_training = arg
+  elif opt in ('d', '--dev'):
+    num_training = int(arg)
 
 
 def build_feature_set(text):
@@ -61,7 +61,7 @@ for raw_review in raw_reviews:
   stars = review_json['stars']
   text = review_json['text'].lower()
 
-  if not num_training == 0: 
+  if num_training > 0: 
     if count < num_training:
       features = build_feature_set(text)
       feature_set.append((features, stars))

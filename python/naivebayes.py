@@ -108,7 +108,9 @@ for stars in xrange(1, 6):
   recall = tp[stars] / (tp[stars] + fn[stars])
   print 'with precision: ',  precision
   print 'and recall:     ',  recall
-  f1 = 2 * precision * recall / (precision + recall)
+  f1 = 0.0
+  if not recall + precision == 0.0:
+    f1 = 2 * precision * recall / (precision + recall)
   print 'and f1:         ',  f1
 
 

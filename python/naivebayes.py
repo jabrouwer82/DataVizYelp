@@ -63,7 +63,7 @@ for raw_review in raw_reviews:
     features = build_feature_set(text)
     feature_set.append((features, stars))
   elif count < num_to_train + num_to_test:
-    test_set.add((star, text))
+    test_set.append((star, text))
   else:
     break
 

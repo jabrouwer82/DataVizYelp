@@ -1,42 +1,68 @@
 #! /bin/python3
 import getopt
 import json
-import os
 import nltk
-import sys
+import operator
+import os
 import random
-from datetime import datetime
+import sys
 
-opts = getopt.getopt(sys.argv[1:], 'i:d:', ['input_dir=', 'dev='])
+from datetime import datetime
+from nltk.corpus import stopwords
+
+opts = getopt.getopt(sys.argv[1:], 'i:d:n:s:p:m:', ['input_dir=', 'dev=', 'ngrams=', 'stopwords=', 'popularity=', 'pop_min='])
 input_dir = './'
 num_training = 0
+ngrams = 1
+stopword = 'none'
+popularity = 3000
+pop_min = 50
 for opt, arg in opts[0]:
   if opt in ('-i', '--input_dir'):
     input_dir = arg
   elif opt in ('-d', '--dev'):
     num_training = int(arg)
+  elif opt in ('-n', '--ngrams'):
+    ngrams = arg
+  elif opt in ('-s', '--stopwords'):
+    stopword = arg
+  elif opt in ('-p', '--popularity'):
+    popularity = int(arg)
+  elif opt in ('-m', '--pop_min'):
+    pop_min = int(arg)
 
+
+word_counts = {}
+words_removed = 0
 
 def build_feature_set(text):
-  tokens = nltk.tokenize.word_tokenize(text)
+  tokens = nltk.tokenize.word_tokenize(text.lower())
   features = {}
-  for token in tokens:
-    features[token] = features.get(token, 0) + 1
-#    unigrams_cond_freq[stars][token] += 1
-#    unigrams_freq[token] += 1
+  global words_removed
+# unigrams
+  if '1' in ngrams:
+    for token in tokens:
+      if stopword in 'popularity':
+        word_counts[token] = word_counts.get(token, 0) + 1
+      if not stopword == 'stopwords' or not token in stopwords.words('english'):
+        features[token] = features.get(token, 0) + 1
+      else:
+        words_removed += 1
+  
+#bigrams
+  if '2' in ngrams:
+    tokens_bigrams = nltk.bigrams(tokens)
 
-#  tokens_bigrams = nltk.bigrams(tokens)
+    for token in tokens_bigrams:
+      features[token] = features.get(token, 0) + 1
 
-#  for token in tokens_bigrams:
-#    features[token] += 1
-#    bigrams_cond_freq[stars][token] += 1
-#    bigrams_freq[token] += 1
+#trigrams
+  if '3' in ngrams:
+    tokens_trigrams = nltk.trigrams(tokens)
 
-#  tokens_trigrams = nltk.bigrams(tokens)
-
-#  for token in tokens_trigrams:
-#    trigrams_cond_freq[stars][token] += 1
-#    bigrams_freq[token] += 1
+    for token in tokens_trigrams:
+      features[token] = features.get(token, 0) + 1
+  
   return features
 
 test_set = []
@@ -55,7 +81,7 @@ raw_reviews = open(os.path.join(input_dir, "yelp_academic_dataset_review.json"))
 for raw_review in raw_reviews:
   count += 1
   if count % update_freq == 0:
-    print 'Parsing review number: ',  count
+    print 'Parsing review number:',  count
 
   review_json = json.loads(raw_review)
   stars = review_json['stars']
@@ -77,18 +103,40 @@ for raw_review in raw_reviews:
     else:
       test_set.append((stars, text))
 
+def get_stopwords():
+  words = []
+  pop_stopwords = sorted(word_counts.items(), key=operator.itemgetter(1), reverse=True)[:popularity]
+  for word, freq in pop_stopwords:
+    if freq > 50:
+      words.append(word)
+  return words
+
+if stopword in 'popularity':
+  print 'Applying popularity stoplist.'
+  pop_stopwords = get_stopwords()
+  print pop_stopwords
+  for feature_label in feature_set:
+    features = feature_label[0]
+    for feature_name, feature_val in features.items():
+      if feature_name in pop_stopwords:
+        features.pop(feature_name)
+        words_removed += 1
+    if len(features) == 0:
+      feature_set.remove(feature_label)
+
 end = datetime.now()
-print 'Done parsing reviews json.a'
-print 'Completed in: ',  end - start
-print 'Selected ', count - len(test_set), ' reviews for training.'
-print 'Selected ', len(test_set), ' reviews for testing.'
+print 'Done parsing reviews json.'
+print 'Completed in:',  end - start
+print 'Selected', count - len(test_set), 'reviews for training.'
+print 'Selected', len(test_set), 'reviews for testing.'
+print 'Removed', words_removed, 'stopwords.'
 print 'Training naive bayes classifier on features.'
 
 start = datetime.now()
-unigram_nb = nltk.NaiveBayesClassifier.train(feature_set)
+nb = nltk.NaiveBayesClassifier.train(feature_set)
 end = datetime.now()
 print 'Finished training naive bayes classifier.'
-print 'Completed in: ',  end - start
+print 'Completed in:',  end - start
 
 
 print 'Beginning analysis.'
@@ -104,7 +152,7 @@ fn = {5: 0.0, 4: 0.0, 3: 0.0, 2: 0.0, 1: 0.0}
 
 for test_stars, test_text in test_set:
   test_feature_set = build_feature_set(test_text)
-  predicted_stars = unigram_nb.classify(test_feature_set)
+  predicted_stars = nb.classify(test_feature_set)
   counts[test_stars] += 1
   if test_stars == predicted_stars:
     tp[test_stars] += 1
@@ -115,19 +163,19 @@ for test_stars, test_text in test_set:
 print 'Finished analysis, printing results:'
 
 for stars in xrange(1, 6):
-  print 'Tested classifier on ',  counts[stars] , ' ',  stars , ' reviews'
+  print 'Tested classifier on',  counts[stars] ,  stars , 'star reviews'
   precision = 0.0
   if not tp[stars] + fp[stars] == 0.0: 
     precision = tp[stars] / (tp[stars] + fp[stars])
   recall = 0.0
   if not tp[stars] + fn[stars] == 0.0:
     recall = tp[stars] / (tp[stars] + fn[stars])
-  print 'with precision: ',  precision
-  print 'and recall:     ',  recall
+  print 'with precision:',  precision
+  print 'and recall:    ',  recall
   f1 = 0.0
   if not recall + precision == 0.0:
     f1 = 2 * precision * recall / (precision + recall)
-  print 'and f1:         ',  f1
+  print 'and f1:        ',  f1
 
 
 

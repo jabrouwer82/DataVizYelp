@@ -105,10 +105,10 @@ print 'Finished analysis, printing results:'
 for stars in xrange(1, 6):
   print 'Tested classifier on ',  counts[stars] , ' ',  stars , ' reviews'
   precision = 0.0
-  if tp[stars] + fp[stars] == 0.0: 
+  if not tp[stars] + fp[stars] == 0.0: 
     precision = tp[stars] / (tp[stars] + fp[stars])
   recall = 0.0
-  if tp[stars] + fn[stars] == 0.0:
+  if not tp[stars] + fn[stars] == 0.0:
     recall = tp[stars] / (tp[stars] + fn[stars])
   print 'with precision: ',  precision
   print 'and recall:     ',  recall

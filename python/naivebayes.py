@@ -13,7 +13,7 @@ from nltk.corpus import stopwords
 opts = getopt.getopt(sys.argv[1:], 'i:d:n:s:p:m:', ['input_dir=', 'dev=', 'ngrams=', 'stopwords=', 'popularity=', 'pop_min='])
 input_dir = './'
 num_training = 0
-ngrams = 1
+ngrams = '1'
 stopword = 'none'
 popularity = 3000
 pop_min = 50

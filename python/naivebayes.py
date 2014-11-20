@@ -4,6 +4,7 @@ import json
 import os
 import nltk
 import sys
+from datetime import datetime
 
 opts = getopt.getopt(sys.argv[1:], 'i:o:', ['input_dir=', 'output_dir='])
 input_dir = './'
@@ -39,6 +40,7 @@ def build_feature_set(text):
 num_reviews = 1125458
 update_freq = num_reviews / 30
 count = 0
+start = datetime.now()
 
 feature_set = []
 # Contents of the feature_set should be in the form ({feature_name: feature_val}, label)
@@ -58,7 +60,14 @@ for raw_review in raw_reviews:
   features = build_feature_set(text)
   feature_set.append((features, stars))
 
+end = datetime.now()
 print 'Done parsing reviews json.'
-print 'Converting frequency distributions into probability distributions.'
+print 'Completed in: ' end - start
+print 'Training naive bayes classifier on features.'
 
+start = datetime.now()
 unigram_nb = nltk.NaiveBayesClassifier.train(feature_set)
+end = datetime.now()
+print 'Finished training naive bayes classifier.'
+print 'Completed in: ' end - start
+

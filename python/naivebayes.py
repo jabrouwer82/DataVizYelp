@@ -35,8 +35,8 @@ def build_feature_set(text):
 #    bigrams_freq[token] += 1
   return features
 
-num_to_train = 100
-num_to_test = 100
+num_to_train = 500
+num_to_test = 500
 test_set = []
 
 num_reviews = 1125458

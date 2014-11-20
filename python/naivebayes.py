@@ -51,7 +51,7 @@ print 'Parsing reviews json into frequency distributions.'
 raw_reviews = open(os.path.join(input_dir, "yelp_academic_dataset_review.json"))
 # Parses a review object
 for raw_review in raw_reviews:
-
+  count += 1
   if count % update_freq == 0:
     print 'Parsing review number: ',  count
 
@@ -64,6 +64,8 @@ for raw_review in raw_reviews:
     feature_set.append((features, stars))
   elif count < num_to_train + num_to_test:
     test_set.add((star, text))
+  else:
+    break
 
 end = datetime.now()
 print 'Done parsing reviews json.'

@@ -35,8 +35,7 @@ def build_feature_set(text):
 #    bigrams_freq[token] += 1
   return features
 
-num_to_train = 500
-num_to_test = 500
+num_training = 5000
 test_set = []
 
 num_reviews = 1125458
@@ -58,18 +57,26 @@ for raw_review in raw_reviews:
   review_json = json.loads(raw_review)
   stars = review_json['stars']
   text = review_json['text'].lower()
-  
-  if count < num_to_train:
+ 
+  if count < num_training:
     features = build_feature_set(text)
     feature_set.append((features, stars))
-  elif count < num_to_train + num_to_test:
+  elif count < 2 * num_training:
     test_set.append((stars, text))
   else:
     break
+# Sample 50% of data to be for training and 50% to be for testing
+#  if random.random() < 0.5:
+#    features = build_feature_set(text)
+#    feature_set.append((features, stars))
+#  else:
+#    test_set.append((stars, text))
 
 end = datetime.now()
-print 'Done parsing reviews json.'
+print 'Done parsing reviews json.a'
 print 'Completed in: ',  end - start
+print 'Selected ', count - len(test_set), ' reviews for training.'
+print 'Selected ', len(test_set), ' reviews for testing.'
 print 'Training naive bayes classifier on features.'
 
 start = datetime.now()

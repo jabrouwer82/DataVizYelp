@@ -4,6 +4,7 @@ import json
 import os
 import nltk
 import sys
+import random
 from datetime import datetime
 
 opts = getopt.getopt(sys.argv[1:], 'i:d:', ['input_dir=', 'dev='])

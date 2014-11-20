@@ -6,12 +6,15 @@ import nltk
 import sys
 from datetime import datetime
 
-opts = getopt.getopt(sys.argv[1:], 'i:o:', ['input_dir=', 'output_dir='])
+opts = getopt.getopt(sys.argv[1:], 'i:d:', ['input_dir=', 'dev='])
 input_dir = './'
-output_dir = '../bin/'
+num_training = 0
 for opt, arg in opts[0]:
   if opt in ('-i', '--input_dir'):
     input_dir = arg
+  if opt in ('d', '--dev'):
+    num_training = arg
+
 
 def build_feature_set(text):
   tokens = nltk.tokenize.word_tokenize(text)
@@ -35,7 +38,6 @@ def build_feature_set(text):
 #    bigrams_freq[token] += 1
   return features
 
-num_training = 5000
 test_set = []
 
 num_reviews = 1125458
@@ -57,20 +59,22 @@ for raw_review in raw_reviews:
   review_json = json.loads(raw_review)
   stars = review_json['stars']
   text = review_json['text'].lower()
- 
-  if count < num_training:
-    features = build_feature_set(text)
-    feature_set.append((features, stars))
-  elif count < 2 * num_training:
-    test_set.append((stars, text))
+
+  if not num_training == 0: 
+    if count < num_training:
+      features = build_feature_set(text)
+      feature_set.append((features, stars))
+    elif count < 2 * num_training:
+      test_set.append((stars, text))
+    else:
+      break
   else:
-    break
-# Sample 50% of data to be for training and 50% to be for testing
-#  if random.random() < 0.5:
-#    features = build_feature_set(text)
-#    feature_set.append((features, stars))
-#  else:
-#    test_set.append((stars, text))
+    # Sample 50% of data to be for training and 50% to be for testing
+    if random.random() < 0.5:
+      features = build_feature_set(text)
+      feature_set.append((features, stars))
+    else:
+      test_set.append((stars, text))
 
 end = datetime.now()
 print 'Done parsing reviews json.a'

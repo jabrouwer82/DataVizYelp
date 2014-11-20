@@ -38,14 +38,14 @@ for raw_review in raw_reviews:
   tokens = nltk.tokenize.word_tokenize(text)
   features = {}
   for token in tokens:
-    features['unigram'] = token
+    features[token] += 1
 #    unigrams_cond_freq[stars][token] += 1
 #    unigrams_freq[token] += 1
 
-  tokens_bigrams = nltk.bigrams(tokens)
+#  tokens_bigrams = nltk.bigrams(tokens)
 
-  for token in tokens_bigrams:
-    features['bigram'] = token
+#  for token in tokens_bigrams:
+#    features[token] += 1
 #    bigrams_cond_freq[stars][token] += 1
 #    bigrams_freq[token] += 1
 

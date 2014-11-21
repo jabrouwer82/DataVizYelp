@@ -119,10 +119,13 @@ print 'Beginning analysis.'
 counts = {5: 0.0, 4: 0.0, 3: 0.0, 2: 0.0, 1: 0.0}
 # True positives, tp[x] = count of times real_stars == x == expected_stars
 tp = {5: 0.0, 4: 0.0, 3: 0.0, 2: 0.0, 1: 0.0}
+close_tp = {5: 0.0, 4: 0.0, 3: 0.0, 2: 0.0, 1: 0.0}
 # False positives, fp[x] = count of times real_stars != x == expected_stars
 fp = {5: 0.0, 4: 0.0, 3: 0.0, 2: 0.0, 1: 0.0}
+close_fp = {5: 0.0, 4: 0.0, 3: 0.0, 2: 0.0, 1: 0.0}
 # False negatives, fn[x] = count of times real_stars == x != expected_stars
 fn = {5: 0.0, 4: 0.0, 3: 0.0, 2: 0.0, 1: 0.0}
+close_fn = {5: 0.0, 4: 0.0, 3: 0.0, 2: 0.0, 1: 0.0}
 
 for test_stars, test_text in test_set:
   test_feature_set = build_feature_set(test_text)
@@ -134,6 +137,13 @@ for test_stars, test_text in test_set:
     fn[test_stars] += 1
     fp[predicted_stars] += 1
 
+  if test_stars == predicted_stars or test_stars == prediced_stars-1 or test_stars == predicted_stars+1:
+    close_tp[test_stars] += 1
+  else:
+    close_fn[test_stars] += 1
+    close_fp[predicted_stars] += 1
+
+
 print 'Finished analysis, printing results:'
 
 for stars in xrange(1, 6):
@@ -144,6 +154,21 @@ for stars in xrange(1, 6):
   recall = 0.0
   if not tp[stars] + fn[stars] == 0.0:
     recall = tp[stars] / (tp[stars] + fn[stars])
+  print 'with precision:',  precision
+  print 'and recall:    ',  recall
+  f1 = 0.0
+  if not recall + precision == 0.0:
+    f1 = 2 * precision * recall / (precision + recall)
+  print 'and f1:        ',  f1
+
+for stars in xrange(1, 6):
+  print 'Tested classifier on',  counts[stars] ,  stars , 'star reviews'
+  precision = 0.0
+  if not close_tp[stars] + close_fp[stars] == 0.0: 
+    precision = close_tp[stars] / (close_tp[stars] + close_fp[stars])
+  recall = 0.0
+  if not close_tp[stars] + close_fn[stars] == 0.0:
+    recall = close_tp[stars] / (close_tp[stars] + close_fn[stars])
   print 'with precision:',  precision
   print 'and recall:    ',  recall
   f1 = 0.0

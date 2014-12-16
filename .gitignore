@@ -1,5 +1,6 @@
 # Generated files
 bin/
+.DS_Store
 
 # History files
 .Rhistory
